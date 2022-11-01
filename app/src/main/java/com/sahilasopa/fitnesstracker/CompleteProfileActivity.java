@@ -45,9 +45,10 @@ public class CompleteProfileActivity extends AppCompatActivity {
                     User user = ds.getValue(User.class);
                     assert user != null;
                     if (auth.getCurrentUser().getUid().equals(user.getId())) {
-                        binding.age.setText(user.getAge());
-                        binding.weight.setText(user.getWeight());
-                        binding.height.setText(user.getHeight());
+                        System.out.println(user);
+                        binding.age.setText(String.valueOf(user.getAge()));
+                        binding.weight.setText(String.valueOf(user.getWeight()));
+                        binding.height.setText(String.valueOf(user.getHeight()));
                     }
                 }
             }
@@ -75,9 +76,9 @@ public class CompleteProfileActivity extends AppCompatActivity {
                 return;
             }
             Map<String, Object> map = new HashMap<>();
-            map.put("age", binding.age.getText().toString());
-            map.put("weight", binding.weight.getText().toString());
-            map.put("height", binding.height.getText().toString());
+            map.put("age", Integer.valueOf(binding.age.getText().toString()));
+            map.put("weight", Integer.valueOf(binding.weight.getText().toString()));
+            map.put("height", Integer.valueOf(binding.height.getText().toString()));
             database.getReference("Users").child(auth.getCurrentUser().getUid()).updateChildren(map);
             startActivity(home);
             finish();

@@ -7,31 +7,46 @@ public class User {
     String profile_pic;
     String password;
     String contact_no;
-    int age;
-    int weight;
-    int height;
+    long age;
+    long weight;
+    long height;
 
-    public int getAge() {
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", profile_pic='" + profile_pic + '\'' +
+                ", password='" + password + '\'' +
+                ", contact_no='" + contact_no + '\'' +
+                ", age=" + age +
+                ", weight=" + weight +
+                ", height=" + height +
+                '}';
+    }
+
+    public long getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(long age) {
         this.age = age;
     }
 
-    public int getWeight() {
+    public long getWeight() {
         return weight;
     }
 
-    public void setWeight(int weight) {
+    public void setWeight(long weight) {
         this.weight = weight;
     }
 
-    public int getHeight() {
+    public long getHeight() {
         return height;
     }
 
-    public void setHeight(int height) {
+    public void setHeight(long height) {
         this.height = height;
     }
 

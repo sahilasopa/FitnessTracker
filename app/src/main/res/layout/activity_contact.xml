@@ -47,6 +47,7 @@
             android:ems="10"
             android:hint="@string/contact_no"
             android:inputType="phone"
+            android:minHeight="48dp"
             android:padding="9dp"
             android:textColor="@color/black"
             android:textColorHint="#808080 " />
@@ -60,6 +61,7 @@
             android:ems="10"
             android:hint="@string/username"
             android:inputType="text"
+            android:minHeight="48dp"
             android:padding="9dp"
             android:textColor="@color/black"
             android:textColorHint="#808080 " />

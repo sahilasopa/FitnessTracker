@@ -20,8 +20,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.FirebaseDatabase;
 import com.sahilasopa.fitnesstracker.databinding.ActivityLoginBinding;
-import com.sahilasopa.fitnesstracker.models.User;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
@@ -113,15 +114,14 @@ public class LoginActivity extends AppCompatActivity {
         auth.signInWithCredential(credential)
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
-                        // Sign in success, update UI with the signed-in user's information
-                        Log.d("TAG", "signInWithCredential:success");
                         FirebaseUser user = auth.getCurrentUser();
-                        User users = new User();
                         assert user != null;
-                        users.setId(user.getUid());
-                        users.setProfile_pic(Objects.requireNonNull(user.getPhotoUrl()).toString());
-                        users.setUsername(user.getDisplayName());
-                        database.getReference().child("Users").child(user.getUid()).setValue(users);
+                        Map<String, Object> map = new HashMap<>();
+                        map.put("id", user.getUid());
+                        map.put("email", user.getEmail());
+                        map.put("profile_pic", Objects.requireNonNull(user.getPhotoUrl()).toString());
+                        map.put("username", user.getDisplayName());
+                        database.getReference().child("Users").child(user.getUid()).updateChildren(map);
                         startActivity(completeProfile);
                         finish();
                     } else {

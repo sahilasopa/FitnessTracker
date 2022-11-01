@@ -1,15 +1,15 @@
 package com.sahilasopa.fitnesstracker;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.widget.Toolbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.mlkit.vision.pose.PoseDetection;
-import com.google.mlkit.vision.pose.PoseDetector;
-import com.google.mlkit.vision.pose.accurate.AccuratePoseDetectorOptions;
 import com.sahilasopa.fitnesstracker.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -17,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
     FirebaseDatabase database; // Firebase Database
     FirebaseAuth auth;
     Intent login;
-    Intent pose;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,5 +29,16 @@ public class MainActivity extends AppCompatActivity {
             startActivity(login);
             finish();
         } // If User is Not logged in switch to login page
+        binding.materialToolbar.setSubtitle("Fitness Tracker");
+        binding.materialToolbar.setSubtitleTextColor(Color.WHITE);
+        binding.materialToolbar.inflateMenu(R.menu.main);
+        binding.materialToolbar.setOnMenuItemClickListener(item -> {
+            if (item.getItemId() == R.id.logout_menu){
+                auth.signOut();
+                startActivity(login);
+                finish();
+            }
+            return false;
+        });
     }
 }
