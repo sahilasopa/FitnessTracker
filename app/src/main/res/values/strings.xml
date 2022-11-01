@@ -23,4 +23,12 @@
     <string name="height_in_cm">Height (In CM)</string>
     <string name="age">Age</string>
     <string name="complete_profile">Complete Profile</string>
+    <string name="calorie_tracker">Calorie Tracker</string>
+    <string name="workout_tracker">Workout Tracker</string>
+    <string name="flashcard">f</string>
+    <string name="todo">t</string>
+    <string name="profile">My Profile</string>
+    <string name="my_profile">My Profile</string>
+    <string name="statistics">Statistics</string>
+    <string name="workout_detector">Workout Detector</string>
 </resources>
