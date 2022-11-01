@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Fitness Tracker</string>
+    <string name="username">Username</string>
+    <string name="email">Email</string>
+    <string name="contact_no">Contact No</string>
+    <string name="send_otp">Send OTP</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="signup_register">Signup/Register</string>
+    <string name="already_have_account">Already Have Account?</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="google">Google</string>
+    <string name="mobile_no">Mobile NO</string>
+    <string name="enter_verification_code">Enter Verification Code</string>
+    <string name="verify">Verify</string>
+    <string name="didn_t_receive_code_resend_otp">Didn\'t Receive Code? Resend OTP</string>
+    <string name="_91_1010101010">+91 1010101010</string>
+    <string name="otp">OTP</string>
+    <string name="enter_the_otp">\"Enter The Otp Sent On \"</string>
+    <string name="icon">icon</string>
+    <string name="let_s_complete_your_profile">Let\'s Complete Your Profile</string>
+    <string name="weight_in_kg">Weight (In KG)</string>
+    <string name="height_in_cm">Height (In CM)</string>
+    <string name="age">Age</string>
+    <string name="complete_profile">Complete Profile</string>
+</resources>
