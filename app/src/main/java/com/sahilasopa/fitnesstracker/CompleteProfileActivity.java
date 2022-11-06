@@ -46,9 +46,15 @@ public class CompleteProfileActivity extends AppCompatActivity {
                     assert user != null;
                     if (auth.getCurrentUser().getUid().equals(user.getId())) {
                         System.out.println(user);
-                        binding.age.setText(String.valueOf(user.getAge()));
-                        binding.weight.setText(String.valueOf(user.getWeight()));
-                        binding.height.setText(String.valueOf(user.getHeight()));
+                        if (user.getAge() > 0) {
+                            binding.age.setText(String.valueOf(user.getAge()));
+                        }
+                        if (user.getHeight() > 0) {
+                            binding.height.setText(String.valueOf(user.getHeight()));
+                        }
+                        if (user.getWeight() > 0) {
+                            binding.weight.setText(String.valueOf(user.getWeight()));
+                        }
                     }
                 }
             }
@@ -72,6 +78,19 @@ public class CompleteProfileActivity extends AppCompatActivity {
                 return;
             } else if (height.getText().toString().isEmpty()) {
                 height.setError("This Field Is Required");
+                height.requestFocus();
+                return;
+            }
+            if (Long.parseLong(age.getText().toString()) <= 0) {
+                age.setError("How can you not be born yet");
+                age.requestFocus();
+                return;
+            } else if (Long.parseLong(weight.getText().toString()) <= 0) {
+                weight.setError("Everything Has A Mass ~ Newton");
+                weight.requestFocus();
+                return;
+            } else if (Long.parseLong(height.getText().toString()) <= 0) {
+                height.setError("Too short to use our app");
                 height.requestFocus();
                 return;
             }

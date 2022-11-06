@@ -3,8 +3,6 @@ package com.sahilasopa.fitnesstracker;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.MenuItem;
-import android.widget.Toolbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     FirebaseDatabase database; // Firebase Database
     FirebaseAuth auth;
     Intent login;
+    Intent calorieTracker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         auth = FirebaseAuth.getInstance();
         login = new Intent(this, LoginActivity.class);
+        calorieTracker = new Intent(this, CalorieActivity.class);
         if ((auth.getCurrentUser() == null)) {
             startActivity(login);
             finish();
@@ -33,12 +33,15 @@ public class MainActivity extends AppCompatActivity {
         binding.materialToolbar.setSubtitleTextColor(Color.WHITE);
         binding.materialToolbar.inflateMenu(R.menu.main);
         binding.materialToolbar.setOnMenuItemClickListener(item -> {
-            if (item.getItemId() == R.id.logout_menu){
+            if (item.getItemId() == R.id.logout_menu) {
                 auth.signOut();
                 startActivity(login);
                 finish();
             }
             return false;
+        });
+        binding.calorieTracker.setOnClickListener(view -> {
+            startActivity(calorieTracker);
         });
     }
 }

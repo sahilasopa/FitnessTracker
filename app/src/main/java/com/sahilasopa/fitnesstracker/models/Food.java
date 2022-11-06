@@ -1,5 +1,7 @@
 package com.sahilasopa.fitnesstracker.models;
 
+import androidx.annotation.NonNull;
+
 public class Food {
     String name;
     long calories;
@@ -9,6 +11,7 @@ public class Food {
     long fiber;
     long quantity;
 
+    @NonNull
     @Override
     public String toString() {
         return "Food{" +

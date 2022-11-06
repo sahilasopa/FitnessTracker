@@ -29,4 +29,10 @@
     <string name="statistics">Statistics</string>
     <string name="workout_detector">Workout Detector</string>
     <string name="logout">logout</string>
+    <string name="calories_eaten">Calories Eaten</string>
+    <string name="fats_eaten">Fats Eaten</string>
+    <string name="_10kcl">10 KCL</string>
+    <string name="add_food">Add Food</string>
+    <string name="protein_intake">Protein Intake</string>
+    <string name="carbohydrate_consumed">Carbohydrate Consumed</string>
 </resources>
