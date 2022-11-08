@@ -35,4 +35,22 @@
     <string name="add_food">Add Food</string>
     <string name="protein_intake">Protein Intake</string>
     <string name="carbohydrate_consumed">Carbohydrate Consumed</string>
+    <string name="pizza">Pizza</string>
+    <string name="food_name">Food Name</string>
+    <string name="find_info">Find Info</string>
+    <string name="total_calorie">Total Calorie</string>
+    <string name="total_fats">Total Fats</string>
+    <string name="total_protein">Total Protein</string>
+    <string name="total_carbs">Total Carbs</string>
+    <string name="dash">---</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="welcome_to_fitness_tracker">Welcome To Fitness Tracker</string>
+    <string name="next">Next</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="tell_us_about_yourself">Tell Us About Yourself</string>
+    <string name="gender_info">To give you a better experience and results \n we would like to know your gender</string>
+    <string name="Continue">Continue</string>
 </resources>
