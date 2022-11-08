@@ -1,14 +1,20 @@
 package com.sahilasopa.fitnesstracker;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.sahilasopa.fitnesstracker.databinding.ActivityHeightPickerBinding;
+
 public class HeightPickerActivity extends AppCompatActivity {
+    ActivityHeightPickerBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_height_picker);
+        binding = ActivityHeightPickerBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        binding.heightPicker.setMinValue(100);
+        binding.heightPicker.setMaxValue(210);
     }
 }

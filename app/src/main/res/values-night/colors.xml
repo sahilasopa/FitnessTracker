@@ -8,5 +8,7 @@
     <color name="light_blue_A200">#FF40C4FF</color>
     <color name="light_blue_A400">#FF00B0FF</color>
     <color name="background">#181A20</color>
+    <color name="buttonBackground">#1F222A</color>
+    <color name="inputBackground">#1F222A</color>
     <color name="text_color">@color/white</color>
 </resources>

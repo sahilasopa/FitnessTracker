@@ -60,4 +60,9 @@
     <string name="height_in_cm_don_t_worry_you_can_always_change_it_later">Height in cm, Don\'t Worry You Can Always Change It Later</string>
     <string name="back">Back</string>
     <string name="what_is_your_height">What is your Height?</string>
+    <string name="create_your_account">Create Your \n Account</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="or_continue_with">----------------  Or continue with  ----------------</string>
+    <string name="login_to_your_account">Login to your account</string>
+    <string name="new_create_an_account">New? Create an account</string>
 </resources>
