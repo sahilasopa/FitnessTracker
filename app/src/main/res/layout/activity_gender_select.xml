@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/background"
     tools:context=".GenderSelectActivity">
 
     <com.google.android.material.button.MaterialButton
@@ -57,7 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
         android:text="@string/tell_us_about_yourself"
-        android:textColor="@color/black"
+        android:textColor="@color/text_color"
         android:textSize="26sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -72,8 +72,8 @@
         android:fontFamily="@font/advent_pro_semibold"
         android:text="@string/gender_info"
         android:textAlignment="center"
+        android:textColor="@color/text_color"
         android:textSize="20sp"
-        android:textColor="#808080"
         app:layout_constraintBottom_toTopOf="@+id/materialButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
@@ -81,14 +81,4 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:layout_constraintVertical_bias="0.453" />
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="300dp"
-        android:background="@drawable/roundbuttons"
-        android:layout_height="wrap_content"
-        android:text="@string/Continue"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/materialButton2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

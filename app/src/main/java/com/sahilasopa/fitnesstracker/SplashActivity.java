@@ -23,7 +23,7 @@ public class SplashActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         new Handler().postDelayed(() -> {
             //This method will be executed once the timer is over
-            Intent main = new Intent(SplashActivity.this, WelcomeActivity.class);
+            Intent main = new Intent(SplashActivity.this, AgePickerActivity.class);
             startActivity(main); // switch to main activity
             finish(); // close this activity
         }, delayMillis);

@@ -53,4 +53,9 @@
     <string name="tell_us_about_yourself">Tell Us About Yourself</string>
     <string name="gender_info">To give you a better experience and results \n we would like to know your gender</string>
     <string name="Continue">Continue</string>
+    <string name="how_old_are_you">How Old Are You?</string>
+    <string name="age_in_years_this_will_help_us_to_personalize_n_an_exercise_program_plan_that_suits_you">Age in years, This will help us to personalize \n an exercise program plan that suits you</string>
+    <string name="what_is_your_weight">What is Your Weight?</string>
+    <string name="weight_in_kg_don_t_worry_you_can_always_change_it_later">Weight in kg, Don\'t Worry You Can Always Change It Later</string>
+    <string name="back">Back</string>
 </resources>
