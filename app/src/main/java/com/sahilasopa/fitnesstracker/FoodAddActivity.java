@@ -1,21 +1,21 @@
 package com.sahilasopa.fitnesstracker;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.sahilasopa.fitnesstracker.databinding.ActivityFoodAddBinding;
-import com.sahilasopa.fitnesstracker.utils.JsonParser;
+import com.sahilasopa.fitnesstracker.utils.AuthenticationVerifier;
 import com.sahilasopa.fitnesstracker.utils.VolleyGetRequestUtil;
 import com.sahilasopa.fitnesstracker.utils.VolleyListener;
 
 public class FoodAddActivity extends AppCompatActivity implements VolleyListener {
     ActivityFoodAddBinding binding;
     FirebaseAuth auth;
-    Intent login;
     VolleyGetRequestUtil getRequestUtil;
+    AuthenticationVerifier authenticationVerifier;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,10 +23,7 @@ public class FoodAddActivity extends AppCompatActivity implements VolleyListener
         binding = ActivityFoodAddBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         auth = FirebaseAuth.getInstance();
-        login = new Intent(this, LoginActivity.class);
-        if ((auth.getCurrentUser() == null)) {
-            startActivity(login);
-        } // If User is Not logged in switch to login page
+        authenticationVerifier.validateLogin(this);
         getRequestUtil = new VolleyGetRequestUtil();
         binding.FindFood.setOnClickListener(view -> {
             String foodName = binding.foodName.getText().toString();

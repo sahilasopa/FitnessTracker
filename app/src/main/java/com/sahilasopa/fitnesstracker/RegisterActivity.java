@@ -41,8 +41,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityRegisterBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        completeProfile = new Intent(this, MainActivity.class);
-        completeProfile = new Intent(this, CompleteProfileActivity.class);
+        completeProfile = new Intent(this, GenderSelectActivity.class);
         login = new Intent(this, LoginActivity.class);
         contact = new Intent(this, ContactActivity.class);
         auth = FirebaseAuth.getInstance();

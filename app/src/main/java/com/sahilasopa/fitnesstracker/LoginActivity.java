@@ -31,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
     FirebaseAuth auth;
     FirebaseDatabase database;
     GoogleSignInClient mGoogleSignInClient; // SignIn Client For Google
-    Intent completeProfile;
+    Intent home;
     Intent register;
     Intent contact;
     final int RC_SIGN_IN = 69;
@@ -40,14 +40,13 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
-        completeProfile = new Intent(this, CompleteProfileActivity.class);
         register = new Intent(this, RegisterActivity.class);
         contact = new Intent(this, ContactActivity.class);
-        completeProfile = new Intent(this, CompleteProfileActivity.class);
+        home = new Intent(this, MainActivity.class);
         setContentView(binding.getRoot());
         auth = FirebaseAuth.getInstance();
         if ((auth.getCurrentUser() != null)) {
-            startActivity(completeProfile);
+            startActivity(home);
         } // If User is logged in switch to completeProfile page
         database = FirebaseDatabase.getInstance();
         progressDialog = new ProgressDialog(this);
@@ -73,8 +72,7 @@ public class LoginActivity extends AppCompatActivity {
             auth.signInWithEmailAndPassword(binding.email.getText().toString(), binding.password.getText().toString()).addOnCompleteListener(task -> {
                 progressDialog.dismiss();
                 if (task.isSuccessful()) {
-                    completeProfile.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(completeProfile);
+                    startActivity(home);
                     finish();
                 } else {
                     Toast.makeText(LoginActivity.this, Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
@@ -122,7 +120,7 @@ public class LoginActivity extends AppCompatActivity {
                         map.put("profile_pic", Objects.requireNonNull(user.getPhotoUrl()).toString());
                         map.put("username", user.getDisplayName());
                         database.getReference().child("Users").child(user.getUid()).updateChildren(map);
-                        startActivity(completeProfile);
+                        startActivity(home);
                         finish();
                     } else {
                         // If sign in fails, display a message to the user.

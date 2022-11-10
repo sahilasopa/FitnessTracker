@@ -20,8 +20,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.FirebaseDatabase;
-import com.sahilasopa.fitnesstracker.models.User;
 import com.sahilasopa.fitnesstracker.databinding.ActivityContactBinding;
+import com.sahilasopa.fitnesstracker.models.User;
+import com.sahilasopa.fitnesstracker.utils.AuthenticationVerifier;
 
 import java.util.Objects;
 
@@ -33,8 +34,9 @@ public class ContactActivity extends AppCompatActivity {
     GoogleSignInClient mGoogleSignInClient; // SignIn Client For Google
     Intent home;
     Intent register;
-    Intent email;
+    Intent login;
     Intent otp;
+    AuthenticationVerifier authenticationVerifier;
     final int RC_SIGN_IN = 69;
 
     @SuppressLint("UseCompatLoadingForDrawables")
@@ -45,13 +47,10 @@ public class ContactActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         home = new Intent(this, MainActivity.class);
         register = new Intent(this, RegisterActivity.class);
-        email = new Intent(this, LoginActivity.class);
+        login = new Intent(this, LoginActivity.class);
         otp = new Intent(this, OtpActivity.class);
         auth = FirebaseAuth.getInstance();
-        if ((auth.getCurrentUser() != null)) {
-            startActivity(home);
-            finish();
-        } // If User is logged in switch to home page
+        authenticationVerifier.validateLogin(this);
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
@@ -78,7 +77,7 @@ public class ContactActivity extends AppCompatActivity {
             finish();
         });
         binding.buttonEmail.setOnClickListener(view -> {
-            startActivity(email);
+            startActivity(login);
             finish();
         });
         binding.buttonGoogle.setOnClickListener(view -> {

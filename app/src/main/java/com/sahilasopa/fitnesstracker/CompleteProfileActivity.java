@@ -14,6 +14,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.sahilasopa.fitnesstracker.databinding.ActivityCompleteProfileBinding;
 import com.sahilasopa.fitnesstracker.models.User;
+import com.sahilasopa.fitnesstracker.utils.AuthenticationVerifier;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,8 +23,9 @@ public class CompleteProfileActivity extends AppCompatActivity {
     ActivityCompleteProfileBinding binding;
     FirebaseDatabase database; // Firebase Database
     FirebaseAuth auth;
-    Intent login;
     Intent home;
+    AuthenticationVerifier authenticationVerifier;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,12 +34,9 @@ public class CompleteProfileActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         database = FirebaseDatabase.getInstance();
         auth = FirebaseAuth.getInstance();
-        login = new Intent(this, LoginActivity.class);
         home = new Intent(this, MainActivity.class);
-        if ((auth.getCurrentUser() == null)) {
-            startActivity(login);
-            finish();
-        } // If User is Not logged in switch to login page
+        assert auth.getCurrentUser() != null;
+        authenticationVerifier.validateLogin(this);
         database.getReference("Users").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
