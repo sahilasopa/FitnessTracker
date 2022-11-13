@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        authenticationVerifier = new AuthenticationVerifier();
         authenticationVerifier.validateLogin(this);
         auth = FirebaseAuth.getInstance();
         login = new Intent(this, LoginActivity.class);

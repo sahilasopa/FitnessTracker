@@ -1,4 +1,5 @@
 package com.sahilasopa.fitnesstracker;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,8 +23,8 @@ import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.database.FirebaseDatabase;
-import com.sahilasopa.fitnesstracker.models.User;
 import com.sahilasopa.fitnesstracker.databinding.ActivityOtpBinding;
+import com.sahilasopa.fitnesstracker.models.User;
 
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
@@ -48,8 +49,8 @@ public class OtpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityOtpBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        completeProfile = new Intent(this, CompleteProfileActivity.class);
-        register = new Intent(this, CompleteProfileActivity.class);
+        completeProfile = new Intent(this, GenderSelectActivity.class);
+        register = new Intent(this, RegisterActivity.class);
         email = new Intent(this, LoginActivity.class);
         login = new Intent(this, OtpActivity.class);
         auth = FirebaseAuth.getInstance();

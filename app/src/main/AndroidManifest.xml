@@ -84,13 +84,6 @@
             android:required="false" />
 
         <activity
-            android:name=".CompleteProfileActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".OtpActivity"
             android:exported="false">
             <meta-data

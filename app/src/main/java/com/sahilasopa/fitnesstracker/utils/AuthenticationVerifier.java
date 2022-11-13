@@ -13,7 +13,7 @@ public class AuthenticationVerifier {
 
     public void validateLogin(Context context) {
         auth = FirebaseAuth.getInstance();
-        new Intent(context, LoginActivity.class);
+        login = new Intent(context, LoginActivity.class);
         if ((auth.getCurrentUser() == null)) {
             context.startActivity(login);
             ((Activity) context).finish();

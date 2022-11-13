@@ -4,11 +4,9 @@ import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.util.Log;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -76,11 +74,11 @@ public class ContactActivity extends AppCompatActivity {
             finish();
         });
         binding.buttonGoogle.setOnClickListener(view -> {
-            startActivity(login);
+            googleSignIn();
             finish();
         });
-        binding.buttonGoogle.setOnClickListener(view -> {
-            googleSignIn();
+        binding.buttonEmail.setOnClickListener(view -> {
+            startActivity(login);
             finish();
         });
         binding.alreadyHaveAccountText.setOnClickListener(view -> {
