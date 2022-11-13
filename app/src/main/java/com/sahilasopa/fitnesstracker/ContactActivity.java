@@ -4,9 +4,11 @@ import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.util.Log;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -51,7 +53,6 @@ public class ContactActivity extends AppCompatActivity {
         login = new Intent(this, LoginActivity.class);
         otp = new Intent(this, OtpActivity.class);
         auth = FirebaseAuth.getInstance();
-        authenticationVerifier.validateLogin(this);
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
@@ -134,5 +135,11 @@ public class ContactActivity extends AppCompatActivity {
                         Toast.makeText(ContactActivity.this, Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
+        authenticationVerifier.validateLogin(this);
+        super.onCreate(savedInstanceState, persistentState);
     }
 }
