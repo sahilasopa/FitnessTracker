@@ -1,7 +1,9 @@
 package com.sahilasopa.fitnesstracker;
 
 import android.os.Bundle;
+import android.os.PersistableBundle;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -23,7 +25,6 @@ public class FoodAddActivity extends AppCompatActivity implements VolleyListener
         binding = ActivityFoodAddBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         auth = FirebaseAuth.getInstance();
-        authenticationVerifier.validateLogin(this);
         getRequestUtil = new VolleyGetRequestUtil();
         binding.FindFood.setOnClickListener(view -> {
             String foodName = binding.foodName.getText().toString();
@@ -45,5 +46,11 @@ public class FoodAddActivity extends AppCompatActivity implements VolleyListener
     @Override
     public void requestFailed(String response) {
         System.out.println("Got this error response" + response);
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
+        authenticationVerifier.validateLogin(this);
+        super.onCreate(savedInstanceState, persistentState);
     }
 }

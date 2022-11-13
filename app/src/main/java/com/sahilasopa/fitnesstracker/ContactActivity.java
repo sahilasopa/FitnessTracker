@@ -45,6 +45,7 @@ public class ContactActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityContactBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        authenticationVerifier = new AuthenticationVerifier();
         home = new Intent(this, MainActivity.class);
         register = new Intent(this, RegisterActivity.class);
         login = new Intent(this, LoginActivity.class);

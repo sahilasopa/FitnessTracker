@@ -32,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
     FirebaseDatabase database;
     GoogleSignInClient mGoogleSignInClient; // SignIn Client For Google
     Intent home;
+    Intent genderSelect;
     Intent register;
     Intent contact;
     final int RC_SIGN_IN = 69;
@@ -43,6 +44,7 @@ public class LoginActivity extends AppCompatActivity {
         register = new Intent(this, RegisterActivity.class);
         contact = new Intent(this, ContactActivity.class);
         home = new Intent(this, MainActivity.class);
+        genderSelect = new Intent(this, GenderSelectActivity.class);
         setContentView(binding.getRoot());
         auth = FirebaseAuth.getInstance();
         if ((auth.getCurrentUser() != null)) {
@@ -72,7 +74,7 @@ public class LoginActivity extends AppCompatActivity {
             auth.signInWithEmailAndPassword(binding.email.getText().toString(), binding.password.getText().toString()).addOnCompleteListener(task -> {
                 progressDialog.dismiss();
                 if (task.isSuccessful()) {
-                    startActivity(home);
+                    startActivity(genderSelect);
                     finish();
                 } else {
                     Toast.makeText(LoginActivity.this, Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
@@ -120,7 +122,7 @@ public class LoginActivity extends AppCompatActivity {
                         map.put("profile_pic", Objects.requireNonNull(user.getPhotoUrl()).toString());
                         map.put("username", user.getDisplayName());
                         database.getReference().child("Users").child(user.getUid()).updateChildren(map);
-                        startActivity(home);
+                        startActivity(genderSelect);
                         finish();
                     } else {
                         // If sign in fails, display a message to the user.

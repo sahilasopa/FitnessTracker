@@ -3,7 +3,9 @@ package com.sahilasopa.fitnesstracker;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         login = new Intent(this, LoginActivity.class);
         calorieTracker = new Intent(this, CalorieActivity.class);
-        authenticationVerifier.validateLogin(this);
         binding.materialToolbar.setSubtitle("Fitness Tracker");
         binding.materialToolbar.setSubtitleTextColor(Color.WHITE);
         binding.materialToolbar.inflateMenu(R.menu.main);
@@ -42,5 +43,11 @@ public class MainActivity extends AppCompatActivity {
         binding.calorieTracker.setOnClickListener(view -> {
             startActivity(calorieTracker);
         });
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
+        authenticationVerifier.validateLogin(this);
+        super.onCreate(savedInstanceState, persistentState);
     }
 }

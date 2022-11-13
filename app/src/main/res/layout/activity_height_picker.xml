@@ -54,7 +54,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.78"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/weightPicker" />
+        app:layout_constraintTop_toBottomOf="@+id/heightPicker" />
 
     <Button
         android:id="@+id/backButton"
@@ -66,6 +66,6 @@
         app:layout_constraintEnd_toStartOf="@+id/continueButton"
         app:layout_constraintHorizontal_bias="0.593"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/weightPicker" />
+        app:layout_constraintTop_toBottomOf="@+id/heightPicker" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
