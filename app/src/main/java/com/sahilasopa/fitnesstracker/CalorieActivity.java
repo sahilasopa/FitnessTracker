@@ -17,6 +17,7 @@ public class CalorieActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityCalorieBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        binding.materialToolbar.setSubtitle("Calorie Tracker");
         addFood = new Intent(this, FoodAddActivity.class);
         binding.addFood.setOnClickListener(binding -> {
             startActivity(addFood);
