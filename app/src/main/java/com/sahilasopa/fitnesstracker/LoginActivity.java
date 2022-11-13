@@ -48,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         auth = FirebaseAuth.getInstance();
         if ((auth.getCurrentUser() != null)) {
-            startActivity(home);
+            startActivity(register);
         } // If User is logged in switch to completeProfile page
         database = FirebaseDatabase.getInstance();
         progressDialog = new ProgressDialog(this);

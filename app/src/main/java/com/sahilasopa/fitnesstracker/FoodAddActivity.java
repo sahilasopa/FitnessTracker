@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.sahilasopa.fitnesstracker.databinding.ActivityFoodAddBinding;
-import com.sahilasopa.fitnesstracker.utils.AuthenticationVerifier;
 import com.sahilasopa.fitnesstracker.utils.VolleyGetRequestUtil;
 import com.sahilasopa.fitnesstracker.utils.VolleyListener;
 
@@ -16,7 +15,6 @@ public class FoodAddActivity extends AppCompatActivity implements VolleyListener
     ActivityFoodAddBinding binding;
     FirebaseAuth auth;
     VolleyGetRequestUtil getRequestUtil;
-    AuthenticationVerifier authenticationVerifier;
 
 
     @Override
@@ -46,11 +44,5 @@ public class FoodAddActivity extends AppCompatActivity implements VolleyListener
     @Override
     public void requestFailed(String response) {
         System.out.println("Got this error response" + response);
-    }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
-        authenticationVerifier.validateLogin(this);
-        super.onCreate(savedInstanceState, persistentState);
     }
 }

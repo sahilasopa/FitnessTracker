@@ -24,7 +24,6 @@ import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.FirebaseDatabase;
 import com.sahilasopa.fitnesstracker.databinding.ActivityContactBinding;
 import com.sahilasopa.fitnesstracker.models.User;
-import com.sahilasopa.fitnesstracker.utils.AuthenticationVerifier;
 
 import java.util.Objects;
 
@@ -38,7 +37,6 @@ public class ContactActivity extends AppCompatActivity {
     Intent register;
     Intent login;
     Intent otp;
-    AuthenticationVerifier authenticationVerifier;
     final int RC_SIGN_IN = 69;
 
     @SuppressLint("UseCompatLoadingForDrawables")
@@ -47,7 +45,6 @@ public class ContactActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityContactBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        authenticationVerifier = new AuthenticationVerifier();
         home = new Intent(this, MainActivity.class);
         register = new Intent(this, RegisterActivity.class);
         login = new Intent(this, LoginActivity.class);
@@ -78,7 +75,7 @@ public class ContactActivity extends AppCompatActivity {
             startActivity(otp);
             finish();
         });
-        binding.buttonEmail.setOnClickListener(view -> {
+        binding.buttonGoogle.setOnClickListener(view -> {
             startActivity(login);
             finish();
         });
@@ -86,7 +83,7 @@ public class ContactActivity extends AppCompatActivity {
             googleSignIn();
             finish();
         });
-        binding.register.setOnClickListener(view -> {
+        binding.alreadyHaveAccountText.setOnClickListener(view -> {
             startActivity(register);
             finish();
         });
@@ -135,11 +132,5 @@ public class ContactActivity extends AppCompatActivity {
                         Toast.makeText(ContactActivity.this, Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
-    }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
-        authenticationVerifier.validateLogin(this);
-        super.onCreate(savedInstanceState, persistentState);
     }
 }

@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.sahilasopa.fitnesstracker.databinding.ActivityHeightPickerBinding;
-import com.sahilasopa.fitnesstracker.utils.AuthenticationVerifier;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,7 +21,6 @@ public class HeightPickerActivity extends AppCompatActivity {
     FirebaseDatabase database; // Firebase Database
     FirebaseAuth auth;
     Intent home;
-    AuthenticationVerifier verifier;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +28,6 @@ public class HeightPickerActivity extends AppCompatActivity {
         binding = ActivityHeightPickerBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         heightPicker = binding.heightPicker;
-        verifier = new AuthenticationVerifier();
         home = new Intent(this, MainActivity.class);
         database = FirebaseDatabase.getInstance();
         auth = FirebaseAuth.getInstance();
@@ -50,11 +47,5 @@ public class HeightPickerActivity extends AppCompatActivity {
             finish();
         });
         binding.backButton.setOnClickListener(view -> finish());
-    }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
-        verifier.validateLogin(this);
-        super.onCreate(savedInstanceState, persistentState);
     }
 }

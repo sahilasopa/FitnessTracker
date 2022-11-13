@@ -9,20 +9,17 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.sahilasopa.fitnesstracker.databinding.ActivityWeightPickerBinding;
-import com.sahilasopa.fitnesstracker.utils.AuthenticationVerifier;
 
 public class WeightPickerActivity extends AppCompatActivity {
     ActivityWeightPickerBinding binding;
     NumberPicker weightPicker;
     Intent heightPicker;
-    AuthenticationVerifier authenticationVerifier;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityWeightPickerBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        authenticationVerifier = new AuthenticationVerifier();
         heightPicker = new Intent(this, HeightPickerActivity.class);
         weightPicker = binding.weightPicker;
         weightPicker.setMinValue(20);
@@ -34,10 +31,5 @@ public class WeightPickerActivity extends AppCompatActivity {
             startActivity(heightPicker);
         });
         binding.backButton.setOnClickListener(view -> finish());
-    }
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
-        authenticationVerifier.validateLogin(this);
-        super.onCreate(savedInstanceState, persistentState);
     }
 }
