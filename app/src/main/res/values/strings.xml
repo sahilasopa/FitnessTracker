@@ -68,4 +68,9 @@
     <string name="_10_g_l">10 g/L</string>
     <string name="_10_grams">10 Grams</string>
     <string name="manually_add">Manually Add</string>
+    <string name="record_your_n_calorie">Record your \n calorie</string>
+    <string name="calorie_kcal">%1$s KCAL</string>
+    <string name="fat_grams">%1$s g</string>
+    <string name="protein_grams">%1$s g</string>
+    <string name="carbs_grams">%1$s g</string>
 </resources>

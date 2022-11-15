@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".CalorieActivity">
+    tools:context=".FoodAddActivity">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/materialToolbar"
@@ -127,7 +127,7 @@
                 android:background="@color/inputBackground">
 
                 <TextView
-                    android:id="@+id/carbsCount"
+                    android:id="@+id/proteinCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
@@ -141,7 +141,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/carbsCount"
+                    android:layout_below="@id/proteinCount"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
                     android:text="@string/total_protein"
@@ -164,7 +164,7 @@
                 android:background="@color/inputBackground">
 
                 <TextView
-                    android:id="@+id/proteinCount"
+                    android:id="@+id/carbsCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
@@ -178,7 +178,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/proteinCount"
+                    android:layout_below="@id/carbsCount"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="8dp"
                     android:text="@string/total_carbs"
@@ -223,7 +223,7 @@
                 android:inputType="text"
                 android:minHeight="48dp"
                 android:padding="9dp"
-                android:textColor="@color/black"
+                android:textColor="@color/text_color"
                 android:textColorHint="#808080 " />
 
             <Button
@@ -238,7 +238,7 @@
                 app:cornerRadius="6dp" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/manually"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/manually_add"
