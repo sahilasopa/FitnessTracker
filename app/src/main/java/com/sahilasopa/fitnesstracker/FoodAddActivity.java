@@ -1,15 +1,17 @@
 package com.sahilasopa.fitnesstracker;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
+import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.sahilasopa.fitnesstracker.databinding.ActivityFoodAddBinding;
+import com.sahilasopa.fitnesstracker.utils.JsonParser;
 import com.sahilasopa.fitnesstracker.utils.VolleyGetRequestUtil;
 import com.sahilasopa.fitnesstracker.utils.VolleyListener;
+
+import org.json.JSONException;
 
 public class FoodAddActivity extends AppCompatActivity implements VolleyListener {
     ActivityFoodAddBinding binding;
@@ -37,7 +39,14 @@ public class FoodAddActivity extends AppCompatActivity implements VolleyListener
 
     @Override
     public void requestSuccess(String response) {
-//        JsonParser
+        JsonParser jsonParser = new JsonParser();
+        try {
+            jsonParser.findFood(response);
+        } catch (JSONException e) {
+            // food not in database
+            Toast.makeText(this, "Food not found in database", Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        }
         System.out.println("Got this success response" + response);
     }
 

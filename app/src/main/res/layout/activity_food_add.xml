@@ -193,7 +193,7 @@
 
     <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="175dp"
+        android:layout_height="200dp"
         android:orientation="horizontal"
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -236,6 +236,14 @@
                 android:text="@string/find_info"
                 app:backgroundTint="@color/colorPrimary"
                 app:cornerRadius="6dp" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/manually_add"
+                android:textAlignment="center"
+                android:textSize="16sp" />
 
         </LinearLayout>
     </LinearLayout>
