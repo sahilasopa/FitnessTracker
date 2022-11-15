@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/background">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/materialToolbar"
@@ -36,7 +36,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/white">
+                android:background="@color/inputBackground">
 
                 <ImageView
                     android:id="@+id/food"
@@ -54,7 +54,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
                     android:text="@string/calorie_tracker"
-                    android:textColor="@color/black"
+                    android:textColor="@color/text_color"
                     android:textSize="20sp" />
 
             </RelativeLayout>
@@ -83,7 +83,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/white">
+                android:background="@color/inputBackground">
 
                 <ImageView
                     android:id="@+id/workout"
@@ -103,7 +103,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
                     android:text="@string/workout_tracker"
-                    android:textColor="@color/black"
+                    android:textColor="@color/text_color"
                     android:textSize="20sp" />
 
             </RelativeLayout>
@@ -132,7 +132,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/white">
+                android:background="@color/inputBackground">
 
                 <ImageView
                     android:id="@+id/workoutImage"
@@ -152,7 +152,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
                     android:text="@string/workout_detector"
-                    android:textColor="@color/black"
+                    android:textColor="@color/text_color"
                     android:textSize="20sp" />
 
             </RelativeLayout>
@@ -179,7 +179,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/white">
+                android:background="@color/inputBackground">
 
                 <ImageView
                     android:id="@+id/profile_image"
@@ -199,7 +199,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
                     android:text="@string/statistics"
-                    android:textColor="@color/black"
+                    android:textColor="@color/text_color"
                     android:textSize="20sp" />
 
             </RelativeLayout>

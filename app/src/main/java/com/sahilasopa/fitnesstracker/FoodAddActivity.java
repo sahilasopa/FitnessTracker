@@ -27,6 +27,7 @@ public class FoodAddActivity extends AppCompatActivity implements VolleyListener
         setContentView(binding.getRoot());
         auth = FirebaseAuth.getInstance();
         getRequestUtil = new VolleyGetRequestUtil();
+        binding.materialToolbar.setSubtitle("Calorie Tracker");
         binding.FindFood.setOnClickListener(view -> {
             String foodName = binding.foodName.getText().toString();
             if (foodName.isEmpty()) {
@@ -47,6 +48,10 @@ public class FoodAddActivity extends AppCompatActivity implements VolleyListener
         try {
             String nutrients = jsonParser.findFood(response);
             displayNutrients(nutrients);
+            binding.save.setEnabled(true);
+            binding.save.setOnClickListener(view -> {
+                // create new food object set data with current date and time
+            });
         } catch (Exception e) {
             // food not in database
             Toast.makeText(this, "Food not found in database", Toast.LENGTH_SHORT).show();
@@ -66,6 +71,7 @@ public class FoodAddActivity extends AppCompatActivity implements VolleyListener
             e.printStackTrace();
         }
     }
+
 
     @Override
     public void requestFailed(String response) {

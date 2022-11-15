@@ -226,16 +226,38 @@
                 android:textColor="@color/text_color"
                 android:textColorHint="#808080 " />
 
-            <Button
-                android:id="@+id/FindFood"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="26dp"
-                android:layout_marginBottom="6dp"
-                android:padding="14dp"
-                android:text="@string/find_info"
-                app:backgroundTint="@color/colorPrimary"
-                app:cornerRadius="6dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/FindFood"
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="26dp"
+                    android:layout_marginBottom="6dp"
+                    android:padding="14dp"
+                    android:text="@string/find_info"
+                    app:backgroundTint="@color/colorPrimary"
+                    app:cornerRadius="6dp" />
+
+                <Button
+                    android:id="@+id/save"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="26dp"
+                    android:layout_marginBottom="6dp"
+                    android:enabled="false"
+                    android:padding="14dp"
+                    android:text="@string/record"
+                    app:backgroundTint="@color/colorPrimary"
+                    app:cornerRadius="6dp" />
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/manually"

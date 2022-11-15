@@ -40,9 +40,7 @@ public class MainActivity extends AppCompatActivity {
             }
             return false;
         });
-        binding.calorieTracker.setOnClickListener(view -> {
-            startActivity(calorieTracker);
-        });
+        binding.calorieTracker.setOnClickListener(view -> startActivity(calorieTracker));
     }
 
 
