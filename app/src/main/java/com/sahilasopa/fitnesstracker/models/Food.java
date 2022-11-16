@@ -21,6 +21,9 @@ public class Food {
         this.timeStamp = new Date();
     }
 
+    public Food() {
+    }
+
     @NonNull
     @Override
     public String toString() {

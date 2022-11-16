@@ -24,7 +24,6 @@ public class FoodAddActivity extends AppCompatActivity implements VolleyListener
     VolleyGetRequestUtil getRequestUtil;
     FirebaseDatabase database;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,15 +50,14 @@ public class FoodAddActivity extends AppCompatActivity implements VolleyListener
         JsonParser jsonParser = new JsonParser();
         try {
             JSONObject n = new JSONObject(jsonParser.findFood(response));
-            String calorie = n.get("ENERC_KCAL").toString();
-            String fats = n.get("ENERC_KCAL").toString();
-            String protein = n.get("ENERC_KCAL").toString();
-            String carbs = n.get("ENERC_KCAL").toString();
+            String calorie = n.get("ENERC_KCAL").toString().split("\\.")[0];
+            String protein = n.get("PROCNT").toString().split("\\.")[0];
+            String carbs = n.get("CHOCDF").toString().split("\\.")[0];
+            String fats = n.get("FAT").toString().split("\\.")[0];
             String foodName = binding.foodName.getText().toString();
             displayNutrients(calorie, fats, protein, carbs);
             binding.save.setEnabled(true);
             binding.save.setOnClickListener(view -> {
-                // create new food object set data with current date and time
                 Food food = new Food(foodName,
                         Integer.parseInt(calorie),
                         Integer.parseInt(protein),
