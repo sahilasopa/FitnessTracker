@@ -2,14 +2,24 @@ package com.sahilasopa.fitnesstracker.models;
 
 import androidx.annotation.NonNull;
 
+import java.util.Date;
+
 public class Food {
-    String name;
-    long calories;
-    long protein;
-    long fat;
-    long carbohydrate;
-    long fiber;
-    long quantity;
+    private String name;
+    private long calories;
+    private long protein;
+    private long fat;
+    private Date timeStamp;
+    private long carbohydrate;
+
+    public Food(String name, long calories, long protein, long fat, long carbohydrate) {
+        this.name = name;
+        this.calories = calories;
+        this.protein = protein;
+        this.fat = fat;
+        this.carbohydrate = carbohydrate;
+        this.timeStamp = new Date();
+    }
 
     @NonNull
     @Override
@@ -19,11 +29,19 @@ public class Food {
                 ", calories=" + calories +
                 ", protein=" + protein +
                 ", fat=" + fat +
+                ", timeStamp=" + timeStamp +
                 ", carbohydrate=" + carbohydrate +
-                ", fiber=" + fiber +
-                ", quantity=" + quantity +
                 '}';
     }
+
+    public Date getTimeStamp() {
+        return timeStamp;
+    }
+
+    public void setTimeStamp(Date timeStamp) {
+        this.timeStamp = timeStamp;
+    }
+
 
     public String getName() {
         return name;
@@ -63,21 +81,5 @@ public class Food {
 
     public void setCarbohydrate(long carbohydrate) {
         this.carbohydrate = carbohydrate;
-    }
-
-    public long getFiber() {
-        return fiber;
-    }
-
-    public void setFiber(long fiber) {
-        this.fiber = fiber;
-    }
-
-    public long getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(long quantity) {
-        this.quantity = quantity;
     }
 }

@@ -1,16 +1,19 @@
 package com.sahilasopa.fitnesstracker.models;
 
-public class User {
-    String id;
-    String username;
-    String email;
-    String profile_pic;
-    String password;
-    String contact_no;
-    long age;
-    long weight;
-    long height;
+import androidx.annotation.NonNull;
 
+public class User {
+    private String id;
+    private String username;
+    private String email;
+    private String profile_pic;
+    private String password;
+    private String contact_no;
+    private long age;
+    private long weight;
+    private long height;
+
+    @NonNull
     @Override
     public String toString() {
         return "User{" +

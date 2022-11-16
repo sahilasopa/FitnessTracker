@@ -46,7 +46,7 @@
             android:inputType="text"
             android:minHeight="52dp"
             android:padding="9dp"
-            android:textColor="@color/black"
+            android:textColor="@color/text_color"
             android:textColorHint="#808080 "
             android:textSize="18sp" />
 
@@ -102,7 +102,7 @@
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/fats"
+            android:id="@+id/carbs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
@@ -120,7 +120,7 @@
 
 
         <Button
-            android:id="@+id/buttonSignIn"
+            android:id="@+id/buttonAddFood"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="26dp"
