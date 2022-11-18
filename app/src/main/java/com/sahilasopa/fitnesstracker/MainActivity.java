@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         login = new Intent(this, LoginActivity.class);
         calorieTracker = new Intent(this, CalorieActivity.class);
+        Intent workoutTracker = new Intent(this, ExerciseActivity.class);
         binding.materialToolbar.setSubtitle("Fitness Tracker");
         binding.materialToolbar.setSubtitleTextColor(Color.WHITE);
         binding.materialToolbar.inflateMenu(R.menu.main);
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
             return false;
         });
         binding.calorieTracker.setOnClickListener(view -> startActivity(calorieTracker));
+        binding.workouts.setOnClickListener(view -> startActivity(workoutTracker));
     }
 
 
