@@ -1,16 +1,18 @@
 package com.sahilasopa.fitnesstracker.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.sahilasopa.fitnesstracker.R;
+import com.sahilasopa.fitnesstracker.StopwatchActivity;
 import com.sahilasopa.fitnesstracker.models.Exercise;
 
 import java.util.List;
@@ -43,7 +45,7 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.ViewHo
         return exercises.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView name;
         public TextView calorieBurn;
 
@@ -51,13 +53,17 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.ViewHo
             super(itemView);
             name = itemView.findViewById(R.id.exerciseName);
             calorieBurn = itemView.findViewById(R.id.calorieBurn);
-            CardView cardView = itemView.findViewById(R.id.exerciseView);
-            cardView.setOnClickListener(this);
+            Button start = itemView.findViewById(R.id.start);
+            start.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
             int pos = getAbsoluteAdapterPosition();
+            Exercise exercise = exercises.get(pos);
+            Intent stopwatch = new Intent(context, StopwatchActivity.class);
+            stopwatch.putExtra("exercise", exercise);
+            context.startActivity(stopwatch);
         }
     }
 }

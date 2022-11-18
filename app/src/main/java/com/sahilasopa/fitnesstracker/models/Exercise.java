@@ -1,6 +1,8 @@
 package com.sahilasopa.fitnesstracker.models;
 
-public class Exercise {
+import java.io.Serializable;
+
+public class Exercise implements Serializable {
     private String name;
     private long calBurn;
     private DIFFICULTY difficulty;
@@ -58,5 +60,16 @@ public class Exercise {
     public Exercise(String name, long calBurn) {
         this.name = name;
         this.calBurn = calBurn;
+    }
+
+    @Override
+    public String toString() {
+        return "Exercise{" +
+                "name='" + name + '\'' +
+                ", calBurn=" + calBurn +
+                ", difficulty=" + difficulty +
+                ", muscle=" + muscle +
+                ", type=" + type +
+                '}';
     }
 }
