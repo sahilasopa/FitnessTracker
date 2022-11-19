@@ -30,10 +30,17 @@ import androidx.annotation.Nullable;
 
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.TaskExecutors;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.mlkit.vision.common.InputImage;
 import com.sahilasopa.fitnesstracker.preference.PreferenceUtils;
 
 import java.nio.ByteBuffer;
+import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -46,13 +53,13 @@ import java.util.TimerTask;
  */
 public abstract class VisionProcessorBase<T> implements VisionImageProcessor {
 
-    protected static final String MANUAL_TESTING_LOG = "LogTagForTest";
     private static final String TAG = "VisionProcessorBase";
 
     private final ActivityManager activityManager;
     private final Timer fpsTimer = new Timer();
     private final ScopedExecutor executor;
-
+    private Integer pushupsCount = 0;
+    private Integer squatsCount = 0;
     // Whether this processor is already shut down
     private boolean isShutdown;
 
@@ -61,6 +68,8 @@ public abstract class VisionProcessorBase<T> implements VisionImageProcessor {
     private long totalRunMs = 0;
     private long maxRunMs = 0;
     private long minRunMs = Long.MAX_VALUE;
+    private final DatabaseReference pushups;
+    private final DatabaseReference squats;
 
     // Frame count that have been processed so far in an one second interval to calculate FPS.
     private int frameProcessedInOneSecondInterval = 0;
@@ -92,6 +101,16 @@ public abstract class VisionProcessorBase<T> implements VisionImageProcessor {
                 },
                 /* delay= */ 0,
                 /* period= */ 1000);
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        pushups = database.getReference().child("Users")
+                .child(Objects.requireNonNull(auth.getCurrentUser()).getUid())
+                .child("Ml Workout")
+                .child("pushups_down");
+        squats = database.getReference().child("Users")
+                .child(Objects.requireNonNull(auth.getCurrentUser()).getUid())
+                .child("Ml Workout")
+                .child("squats_down");
     }
 
 
@@ -133,16 +152,15 @@ public abstract class VisionProcessorBase<T> implements VisionImageProcessor {
                         frameMetadata.getRotation(),
                         InputImage.IMAGE_FORMAT_NV21),
                 graphicOverlay,
-                bitmap,
-                /* shouldShowFps= */ true)
+                bitmap
+                /* shouldShowFps= */)
                 .addOnSuccessListener(executor, results -> processLatestImage(graphicOverlay));
     }
 
     private Task<T> requestDetectInImage(
             final InputImage image,
             final GraphicOverlay graphicOverlay,
-            @Nullable final Bitmap originalCameraImage,
-            boolean shouldShowFps) {
+            @Nullable final Bitmap originalCameraImage) {
         final long startMs = SystemClock.elapsedRealtime();
         return detectInImage(image)
                 .addOnSuccessListener(
@@ -154,6 +172,34 @@ public abstract class VisionProcessorBase<T> implements VisionImageProcessor {
                             totalRunMs += currentLatencyMs;
                             maxRunMs = Math.max(currentLatencyMs, maxRunMs);
                             minRunMs = Math.min(currentLatencyMs, minRunMs);
+                            pushups.addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    pushupsCount = snapshot.getValue(Integer.class);
+                                    if (pushupsCount == null) {
+                                        pushupsCount = 0;
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
+                            squats.addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    squatsCount = snapshot.getValue(Integer.class);
+                                    if (squatsCount == null) {
+                                        squatsCount = 0;
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
 
                             // Only log inference info once per second. When frameProcessedInOneSecondInterval is
                             // equal to 1, it means this is the first frame processed during the current second.
@@ -173,7 +219,7 @@ public abstract class VisionProcessorBase<T> implements VisionImageProcessor {
                             }
                             graphicOverlay.add(
                                     new InferenceInfoGraphic(
-                                            graphicOverlay, currentLatencyMs, shouldShowFps ? framesPerSecond : null));
+                                            graphicOverlay, currentLatencyMs, framesPerSecond, pushupsCount, squatsCount));
                             VisionProcessorBase.this.onSuccess(results, graphicOverlay);
                             graphicOverlay.postInvalidate();
                         })

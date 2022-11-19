@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -133,6 +134,7 @@ public class StopwatchActivity extends AppCompatActivity {
         hoursWorked += (mins / 60f);
         String result = String.format(Locale.ENGLISH, "%.2f", hoursWorked);
         Workout workout = new Workout((Exercise) getIntent().getExtras().get("exercise"), Double.parseDouble(result));
+        Toast.makeText(this, "Burned: " + workout.getCaloriesBurned() + " Calories", Toast.LENGTH_SHORT).show();
         assert auth.getCurrentUser() != null;
         database.getReference().child("Users").child(auth.getCurrentUser().getUid()).child("workouts").child(String.valueOf(workout.getDate().getTime())).setValue(workout);
     }

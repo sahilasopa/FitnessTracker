@@ -28,21 +28,25 @@ import androidx.annotation.Nullable;
 public class InferenceInfoGraphic extends GraphicOverlay.Graphic {
 
     private static final int TEXT_COLOR = Color.WHITE;
-    private static final float TEXT_SIZE = 60.0f;
-
+    private static final float TEXT_SIZE = 50.0f;
+    private Integer pushupCount;
+    private Integer squatsCount;
     private final Paint textPaint;
     private final GraphicOverlay overlay;
     private final double latency;
+
 
     // Only valid when a stream of input images is being processed. Null for single image mode.
     @Nullable
     private final Integer framesPerSecond;
 
     public InferenceInfoGraphic(
-            GraphicOverlay overlay, double latency, @Nullable Integer framesPerSecond) {
+            GraphicOverlay overlay, double latency, @Nullable Integer framesPerSecond, Integer pushupsCount, Integer squatsCount) {
         super(overlay);
         this.overlay = overlay;
         this.latency = latency;
+        this.pushupCount = pushupsCount;
+        this.squatsCount = squatsCount;
         this.framesPerSecond = framesPerSecond;
         textPaint = new Paint();
         textPaint.setColor(TEXT_COLOR);
@@ -55,18 +59,14 @@ public class InferenceInfoGraphic extends GraphicOverlay.Graphic {
         float x = TEXT_SIZE * 0.5f;
         float y = TEXT_SIZE * 1.5f;
 
-        canvas.drawText(
-                "InputImage size: " + overlay.getImageWidth() + "x" + overlay.getImageHeight(),
-                x,
-                y,
-                textPaint);
-
+        canvas.drawText("Push-ups detected (Lifetime): " + pushupCount, x, y, textPaint);
+        canvas.drawText("Squats Detected (Lifetime): " + squatsCount, x, y + TEXT_SIZE, textPaint);
         // Draw FPS (if valid) and inference latency
         if (framesPerSecond != null) {
             canvas.drawText(
-                    "FPS: " + framesPerSecond + ", latency: " + latency + " ms", x, y + TEXT_SIZE, textPaint);
+                    "FPS: " + framesPerSecond + ", latency: " + latency + " ms", x, y + (TEXT_SIZE * 2), textPaint);
         } else {
-            canvas.drawText("Latency: " + latency + " ms", x, y + TEXT_SIZE, textPaint);
+            canvas.drawText("Latency: " + latency + " ms", x, y + (TEXT_SIZE * 2), textPaint);
         }
     }
 }
