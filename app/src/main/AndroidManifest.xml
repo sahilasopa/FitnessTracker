@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
-    <!-- CameraX libraries require minSdkVersion 21, while this quickstart app
+    <!--
+ CameraX libraries require minSdkVersion 21, while this quickstart app
    supports low to 16. Needs to use overrideLibrary to make the merger tool
    ignore this conflict and import the libraries while keeping the app's lower
    minSdkVersion value. In code, will check SDK version, before calling CameraX
-   APIs. -->
-    <uses-sdk
-        tools:overrideLibrary="
-          androidx.camera.camera2, androidx.camera.core,
-          androidx.camera.view, androidx.camera.lifecycle" />
+   APIs.
+    -->
+    <uses-sdk tools:overrideLibrary="           androidx.camera.camera2, androidx.camera.core,           androidx.camera.view, androidx.camera.lifecycle" />
 
-    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera" />
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -29,6 +27,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FitnessTracker"
         tools:targetApi="31">
+        <activity
+            android:name=".WorkoutInstructorActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".StopwatchActivity"
             android:exported="false">

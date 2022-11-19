@@ -33,12 +33,12 @@ public class ExerciseActivity extends AppCompatActivity {
 
     private ArrayList<Exercise> createExercises() {
         ArrayList<Exercise> exercises = new ArrayList<>();
-        Exercise running = new Exercise("Running", 500);
-        Exercise walking = new Exercise("Walking", 250);
-        Exercise cycling = new Exercise("Cycling", 600);
-        Exercise skating = new Exercise("Skating", 500);
-        Exercise jogging = new Exercise("Jogging", 350);
-        Exercise swimming = new Exercise("Swimming", 450);
+        Exercise running = new Exercise("Running", 500, R.drawable.logo_running);
+        Exercise walking = new Exercise("Walking", 250, R.drawable.logo_walking);
+        Exercise cycling = new Exercise("Cycling", 600, R.drawable.logo_cycling);
+        Exercise skating = new Exercise("Skating", 500, R.drawable.logo_skating);
+        Exercise jogging = new Exercise("Jogging", 350, R.drawable.logo_jogging);
+        Exercise swimming = new Exercise("Swimming", 450, R.drawable.logo_swimming);
         exercises.add(running);
         exercises.add(walking);
         exercises.add(cycling);

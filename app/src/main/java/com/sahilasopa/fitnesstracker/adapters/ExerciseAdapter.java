@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -38,6 +39,7 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.ViewHo
         Exercise exercise = exercises.get(position);
         holder.name.setText(exercise.getName());
         holder.calorieBurn.setText(context.getString(R.string.calorie_burn, exercise.getCalBurn()));
+        holder.imageView.setImageResource(exercise.getLogoResource());
     }
 
     @Override
@@ -48,12 +50,14 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.ViewHo
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView name;
         public TextView calorieBurn;
+        public ImageView imageView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.exerciseName);
             calorieBurn = itemView.findViewById(R.id.calorieBurn);
             Button start = itemView.findViewById(R.id.start);
+            imageView = itemView.findViewById(R.id.exerciseLogo);
             start.setOnClickListener(this);
         }
 

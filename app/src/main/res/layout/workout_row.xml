@@ -14,7 +14,7 @@
 
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/exerciseLogo"
             android:layout_width="100dp"
             android:layout_height="76dp"
             android:layout_marginTop="8dp"
