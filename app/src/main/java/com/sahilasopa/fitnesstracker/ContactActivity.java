@@ -26,6 +26,7 @@ import com.sahilasopa.fitnesstracker.models.User;
 import java.util.Objects;
 
 public class ContactActivity extends AppCompatActivity {
+    final int RC_SIGN_IN = 69;
     ActivityContactBinding binding;
     ProgressDialog progressDialog;
     FirebaseAuth auth;
@@ -35,7 +36,6 @@ public class ContactActivity extends AppCompatActivity {
     Intent register;
     Intent login;
     Intent otp;
-    final int RC_SIGN_IN = 69;
 
     @SuppressLint("UseCompatLoadingForDrawables")
     @Override

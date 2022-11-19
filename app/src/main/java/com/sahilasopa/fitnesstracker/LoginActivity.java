@@ -26,6 +26,7 @@ import java.util.Map;
 import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
+    final int RC_SIGN_IN = 69;
     ActivityLoginBinding binding;
     ProgressDialog progressDialog;
     FirebaseAuth auth;
@@ -35,7 +36,6 @@ public class LoginActivity extends AppCompatActivity {
     Intent genderSelect;
     Intent register;
     Intent contact;
-    final int RC_SIGN_IN = 69;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

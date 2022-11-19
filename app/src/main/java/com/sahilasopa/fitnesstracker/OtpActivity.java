@@ -30,7 +30,7 @@ import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 public class OtpActivity extends AppCompatActivity {
-    private String verificationId;
+    final int RC_SIGN_IN = 69;
     ActivityOtpBinding binding;
     String contact;
     String username;
@@ -42,7 +42,31 @@ public class OtpActivity extends AppCompatActivity {
     Intent register;
     Intent login;
     Intent email;
-    final int RC_SIGN_IN = 69;
+    private String verificationId;
+    private final PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallBack = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+
+        @Override
+        public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
+            String code = phoneAuthCredential.getSmsCode(); // This is called if phone is able to verify code without user input (auto verification)
+            if (code != null) {
+                verifyCode(code);
+            }
+        }
+
+        @Override
+        public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+            super.onCodeSent(s, forceResendingToken);
+            verificationId = s;
+            resendToken = forceResendingToken;
+        }
+
+        @Override
+        public void onVerificationFailed(@NonNull FirebaseException e) {
+            Log.v("response", e.getMessage());
+        }
+    };
+
+    // Contact Verification Functions Start
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,8 +111,6 @@ public class OtpActivity extends AppCompatActivity {
         });
     }
 
-    // Contact Verification Functions Start
-
     public void verifyCode(String code) {
         // This function is used to verify code
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId, code);
@@ -127,29 +149,6 @@ public class OtpActivity extends AppCompatActivity {
                         .build();
         PhoneAuthProvider.verifyPhoneNumber(options);
     }
-
-    private final PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallBack = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-
-        @Override
-        public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
-            String code = phoneAuthCredential.getSmsCode(); // This is called if phone is able to verify code without user input (auto verification)
-            if (code != null) {
-                verifyCode(code);
-            }
-        }
-
-        @Override
-        public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
-            super.onCodeSent(s, forceResendingToken);
-            verificationId = s;
-            resendToken = forceResendingToken;
-        }
-
-        @Override
-        public void onVerificationFailed(@NonNull FirebaseException e) {
-            Log.v("response", e.getMessage());
-        }
-    };
 
     // Contact Verification Functions End
 

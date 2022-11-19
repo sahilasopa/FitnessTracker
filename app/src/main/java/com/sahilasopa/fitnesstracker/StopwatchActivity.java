@@ -19,9 +19,6 @@ import com.sahilasopa.fitnesstracker.models.Workout;
 import java.util.Locale;
 
 public class StopwatchActivity extends AppCompatActivity {
-    private int sec = 0;
-    private boolean is_running;
-    private boolean was_running;
     Intent home;
     int hrs;
     int mins;
@@ -30,6 +27,9 @@ public class StopwatchActivity extends AppCompatActivity {
     FirebaseDatabase database;
     double hoursWorked;
     ActivityStopwatchBinding binding;
+    private int sec = 0;
+    private boolean is_running;
+    private boolean was_running;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

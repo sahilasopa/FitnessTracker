@@ -8,6 +8,13 @@ public class Workout {
     private double caloriesBurned;
     private double hoursSpent;
 
+    public Workout(Exercise exercise, double hoursSpent) {
+        this.exercise = exercise;
+        this.date = new Date();
+        this.caloriesBurned = exercise.getCalBurn() * hoursSpent;
+        this.hoursSpent = hoursSpent;
+    }
+
     public Exercise getExercise() {
         return exercise;
     }
@@ -47,13 +54,6 @@ public class Workout {
     }
 
     public void setHoursSpent(long hoursSpent) {
-        this.hoursSpent = hoursSpent;
-    }
-
-    public Workout(Exercise exercise, double hoursSpent) {
-        this.exercise = exercise;
-        this.date = new Date();
-        this.caloriesBurned = exercise.getCalBurn() * hoursSpent;
         this.hoursSpent = hoursSpent;
     }
 }

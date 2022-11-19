@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.sahilasopa.fitnesstracker.databinding.ActivityMainBinding;
+import com.sahilasopa.fitnesstracker.posedetector.classification.PoseClassifierProcessor;
 import com.sahilasopa.fitnesstracker.utils.AuthenticationVerifier;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         login = new Intent(this, LoginActivity.class);
         calorieTracker = new Intent(this, CalorieActivity.class);
         Intent workoutTracker = new Intent(this, ExerciseActivity.class);
+        Intent workoutDetector = new Intent(this, LivePreviewActivity.class);
         binding.materialToolbar.setSubtitle("Fitness Tracker");
         binding.materialToolbar.setSubtitleTextColor(Color.WHITE);
         binding.materialToolbar.inflateMenu(R.menu.main);
@@ -43,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         });
         binding.calorieTracker.setOnClickListener(view -> startActivity(calorieTracker));
         binding.workouts.setOnClickListener(view -> startActivity(workoutTracker));
+        binding.mlWorkoutCard.setOnClickListener(view -> startActivity(workoutDetector));
     }
 
 

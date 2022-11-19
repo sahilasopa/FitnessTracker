@@ -9,6 +9,19 @@ public class Exercise implements Serializable {
     private MUSCLE muscle;
     private TYPE type;
 
+    public Exercise(String name, long calBurn, DIFFICULTY difficulty, MUSCLE muscle, TYPE type) {
+        this.name = name;
+        this.calBurn = calBurn;
+        this.difficulty = difficulty;
+        this.muscle = muscle;
+        this.type = type;
+    }
+
+    public Exercise(String name, long calBurn) {
+        this.name = name;
+        this.calBurn = calBurn;
+    }
+
     public String getName() {
         return name;
     }
@@ -47,19 +60,6 @@ public class Exercise implements Serializable {
 
     public void setType(TYPE type) {
         this.type = type;
-    }
-
-    public Exercise(String name, long calBurn, DIFFICULTY difficulty, MUSCLE muscle, TYPE type) {
-        this.name = name;
-        this.calBurn = calBurn;
-        this.difficulty = difficulty;
-        this.muscle = muscle;
-        this.type = type;
-    }
-
-    public Exercise(String name, long calBurn) {
-        this.name = name;
-        this.calBurn = calBurn;
     }
 
     @Override

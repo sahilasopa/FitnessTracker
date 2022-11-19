@@ -26,6 +26,7 @@ import com.sahilasopa.fitnesstracker.models.User;
 import java.util.Objects;
 
 public class RegisterActivity extends AppCompatActivity {
+    final int RC_SIGN_IN = 69; // This Is Needed To Verify Google SignIn
     ActivityRegisterBinding binding; // Layout Binding
     FirebaseDatabase database; // Firebase Database
     FirebaseAuth auth;
@@ -34,7 +35,6 @@ public class RegisterActivity extends AppCompatActivity {
     Intent completeProfile;
     Intent login;
     Intent contact;
-    final int RC_SIGN_IN = 69; // This Is Needed To Verify Google SignIn
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
