@@ -89,7 +89,7 @@ public class StopwatchActivity extends AppCompatActivity {
     }
 
     private void running_Timer() {
-        final TextView t_View = (TextView) findViewById(R.id.time_view);
+        final TextView t_View = findViewById(R.id.time_view);
         final Handler handle = new Handler();
         handle.post(new Runnable() {
             @Override
@@ -117,13 +117,13 @@ public class StopwatchActivity extends AppCompatActivity {
         builder.setMessage("Do you want to end your timer?");
         builder.setTitle("Finish Exercise?!");
         builder.setCancelable(false);
-        builder.setPositiveButton("Yes, I am tired", (DialogInterface.OnClickListener) (dialog, which) -> {
+        builder.setPositiveButton("Yes, I am tired", (dialog, which) -> {
             endWorkout();
             startActivity(home);
             finish();
         });
 
-        builder.setNegativeButton("No, I can do more", (DialogInterface.OnClickListener) (dialog, which) -> dialog.cancel());
+        builder.setNegativeButton("No, I can do more", (dialog, which) -> dialog.cancel());
 
         AlertDialog alertDialog = builder.create();
         alertDialog.show();

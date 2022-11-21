@@ -58,19 +58,17 @@ public abstract class VisionProcessorBase<T> implements VisionImageProcessor {
     private final ActivityManager activityManager;
     private final Timer fpsTimer = new Timer();
     private final ScopedExecutor executor;
+    private final DatabaseReference pushups;
+    private final DatabaseReference squats;
     private Integer pushupsCount = 0;
     private Integer squatsCount = 0;
     // Whether this processor is already shut down
     private boolean isShutdown;
-
     // Used to calculate latency, running in the same thread, no sync needed.
     private int numRuns = 0;
     private long totalRunMs = 0;
     private long maxRunMs = 0;
     private long minRunMs = Long.MAX_VALUE;
-    private final DatabaseReference pushups;
-    private final DatabaseReference squats;
-
     // Frame count that have been processed so far in an one second interval to calculate FPS.
     private int frameProcessedInOneSecondInterval = 0;
     private int framesPerSecond = 0;

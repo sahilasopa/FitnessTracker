@@ -57,27 +57,6 @@ public class PoseDetectorProcessor
 
     private PoseClassifierProcessor poseClassifierProcessor;
 
-    /**
-     * Internal class to hold Pose and classification results.
-     */
-    protected static class PoseWithClassification {
-        private final Pose pose;
-        private final List<String> classificationResult;
-
-        public PoseWithClassification(Pose pose, List<String> classificationResult) {
-            this.pose = pose;
-            this.classificationResult = classificationResult;
-        }
-
-        public Pose getPose() {
-            return pose;
-        }
-
-        public List<String> getClassificationResult() {
-            return classificationResult;
-        }
-    }
-
     public PoseDetectorProcessor(
             Context context,
             PoseDetectorOptionsBase options,
@@ -162,5 +141,26 @@ public class PoseDetectorProcessor
     protected boolean isMlImageEnabled(Context context) {
         // Use MlImage in Pose Detection by default, change it to OFF to switch to InputImage.
         return true;
+    }
+
+    /**
+     * Internal class to hold Pose and classification results.
+     */
+    protected static class PoseWithClassification {
+        private final Pose pose;
+        private final List<String> classificationResult;
+
+        public PoseWithClassification(Pose pose, List<String> classificationResult) {
+            this.pose = pose;
+            this.classificationResult = classificationResult;
+        }
+
+        public Pose getPose() {
+            return pose;
+        }
+
+        public List<String> getClassificationResult() {
+            return classificationResult;
+        }
     }
 }

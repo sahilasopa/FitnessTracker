@@ -45,14 +45,13 @@ public class PoseGraphic extends GraphicOverlay.Graphic {
     private final boolean showInFrameLikelihood;
     private final boolean visualizeZ;
     private final boolean rescaleZForVisualization;
-    private float zMin = Float.MAX_VALUE;
-    private float zMax = Float.MIN_VALUE;
-
     private final List<String> poseClassification;
     private final Paint classificationTextPaint;
     private final Paint leftPaint;
     private final Paint rightPaint;
     private final Paint whitePaint;
+    private float zMin = Float.MAX_VALUE;
+    private float zMax = Float.MIN_VALUE;
 
     PoseGraphic(
             GraphicOverlay overlay,

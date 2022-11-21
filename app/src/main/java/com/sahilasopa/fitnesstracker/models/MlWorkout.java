@@ -4,6 +4,11 @@ public class MlWorkout {
     private String workoutName;
     private int reps;
 
+    public MlWorkout(String workoutName, int reps) {
+        this.workoutName = workoutName;
+        this.reps = reps;
+    }
+
     public String getWorkoutName() {
         return workoutName;
     }
@@ -17,12 +22,6 @@ public class MlWorkout {
     }
 
     public void setReps(int reps) {
-        this.reps = reps;
-    }
-
-
-    public MlWorkout(String workoutName, int reps) {
-        this.workoutName = workoutName;
         this.reps = reps;
     }
 }

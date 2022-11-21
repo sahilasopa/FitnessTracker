@@ -10,14 +10,6 @@ public class Exercise implements Serializable {
     private TYPE type;
     private int logoResource;
 
-    public int getLogoResource() {
-        return logoResource;
-    }
-
-    public void setLogoResource(int logoResource) {
-        this.logoResource = logoResource;
-    }
-
     public Exercise(String name, long calBurn, DIFFICULTY difficulty, MUSCLE muscle, TYPE type) {
         this.name = name;
         this.calBurn = calBurn;
@@ -29,6 +21,14 @@ public class Exercise implements Serializable {
     public Exercise(String name, long calBurn, int logoResource) {
         this.name = name;
         this.calBurn = calBurn;
+        this.logoResource = logoResource;
+    }
+
+    public int getLogoResource() {
+        return logoResource;
+    }
+
+    public void setLogoResource(int logoResource) {
         this.logoResource = logoResource;
     }
 

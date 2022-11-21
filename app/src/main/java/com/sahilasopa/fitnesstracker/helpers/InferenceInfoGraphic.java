@@ -29,16 +29,14 @@ public class InferenceInfoGraphic extends GraphicOverlay.Graphic {
 
     private static final int TEXT_COLOR = Color.WHITE;
     private static final float TEXT_SIZE = 50.0f;
-    private Integer pushupCount;
-    private Integer squatsCount;
     private final Paint textPaint;
     private final GraphicOverlay overlay;
     private final double latency;
-
-
     // Only valid when a stream of input images is being processed. Null for single image mode.
     @Nullable
     private final Integer framesPerSecond;
+    private final Integer pushupCount;
+    private final Integer squatsCount;
 
     public InferenceInfoGraphic(
             GraphicOverlay overlay, double latency, @Nullable Integer framesPerSecond, Integer pushupsCount, Integer squatsCount) {
