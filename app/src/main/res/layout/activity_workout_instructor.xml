@@ -1,9 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
+    android:gravity="center"
+    android:orientation="vertical"
     tools:context=".WorkoutInstructorActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="70dp"
+        android:fontFamily="@font/advent_pro_semibold"
+        android:text="@string/we_are_always_there_nto_teach_you_new_exercises"
+        android:textAlignment="textStart"
+        android:textColor="@color/text_color"
+        android:textSize="38sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/foodName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:autofillHints="@string/username"
+            android:background="@drawable/edittext"
+            android:ems="10"
+            android:fontFamily="@font/advent_pro_semibold"
+            android:hint="@string/exercise_name_optional"
+            android:inputType="text"
+            android:minHeight="52dp"
+            android:padding="9dp"
+            android:textColor="@color/text_color"
+            android:textColorHint="#808080 "
+            android:textSize="18sp" />
+
+        <Spinner
+            android:id="@+id/difficulty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/edittext"
+            android:contentDescription="@string/learn_exercises"
+            android:fontFamily="@font/advent_pro_semibold"
+            android:minHeight="52dp"
+            android:spinnerMode="dropdown"
+            tools:ignore="DuplicateSpeakableTextCheck" />
+
+        <Spinner
+            android:id="@+id/muscle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/edittext"
+            android:contentDescription="@string/learn_exercises"
+            android:fontFamily="@font/advent_pro_semibold"
+            android:minHeight="52dp"
+            android:spinnerMode="dropdown" />
+
+        <Spinner
+            android:id="@+id/type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/edittext"
+            android:contentDescription="@string/learn_exercises"
+            android:fontFamily="@font/advent_pro_semibold"
+            android:minHeight="52dp"
+            android:spinnerMode="dropdown" />
+
+        <Button
+            android:id="@+id/buttonAddFood"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:layout_marginBottom="6dp"
+            android:background="@drawable/roundbuttons"
+            android:padding="12dp"
+            android:text="@string/find_exercises"
+            app:cornerRadius="6dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

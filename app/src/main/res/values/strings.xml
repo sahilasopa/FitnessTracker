@@ -36,10 +36,10 @@
     <string name="male">Male</string>
     <string name="female">Female</string>
     <string name="tell_us_about_yourself">Tell Us About Yourself</string>
-    <string name="gender_info">To give you a better experience and results \n we would like to know your gender</string>
+    <string name="gender_info">To give you a better experience and results \nwe would like to know your gender</string>
     <string name="Continue">Continue</string>
     <string name="how_old_are_you">How Old Are You?</string>
-    <string name="age_in_years_this_will_help_us_to_personalize_n_an_exercise_program_plan_that_suits_you">Age in years, This will help us to personalize \n an exercise program plan that suits you</string>
+    <string name="age_in_years_this_will_help_us_to_personalize_n_an_exercise_program_plan_that_suits_you">Age in years, This will help us to personalize \nan exercise program plan that suits you</string>
     <string name="what_is_your_weight">What is Your Weight?</string>
     <string name="weight_in_kg_don_t_worry_you_can_always_change_it_later">Weight in kg, Don\'t Worry You Can Always Change It Later</string>
     <string name="height_in_cm_don_t_worry_you_can_always_change_it_later">Height in cm, Don\'t Worry You Can Always Change It Later</string>
@@ -50,7 +50,7 @@
     <string name="login_to_your_account">Login to your account</string>
     <string name="new_create_an_account">New? Create an account</string>
     <string name="manually_add">Manually Add</string>
-    <string name="record_your_n_calorie">Record your \n calorie</string>
+    <string name="record_your_n_calorie">Record your \ncalorie</string>
     <string name="calorie_kcal">%1$s KCAL</string>
     <string name="fat_grams">%1$s g</string>
     <string name="protein_grams">%1$s g</string>
@@ -171,4 +171,7 @@
     <string name="pref_key_live_preview_pose_detector_show_in_frame_likelihood" translatable="false">lppdsifl</string>
     <string name="pref_key_still_image_pose_detector_show_in_frame_likelihood" translatable="false">sipdsifl</string>
     <string name="learn_exercises">Learn Exercises</string>
+    <string name="we_are_always_there_nto_teach_you_new_exercises">We Are Always there\nTo Teach You New Exercises</string>
+    <string name="exercise_name_optional">Exercise Name (Optional)</string>
+    <string name="find_exercises">Find Exercises</string>
 </resources>

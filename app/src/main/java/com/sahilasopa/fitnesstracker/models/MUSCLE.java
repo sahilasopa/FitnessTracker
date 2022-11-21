@@ -1,5 +1,9 @@
 package com.sahilasopa.fitnesstracker.models;
 
+import androidx.annotation.NonNull;
+
+import java.util.Locale;
+
 public enum MUSCLE {
     abdominals,
     abductors,
@@ -16,5 +20,11 @@ public enum MUSCLE {
     neck,
     quadriceps,
     traps,
-    triceps
+    triceps;
+
+    @NonNull
+    @Override
+    public String toString() {
+        return super.toString().substring(0, 1).toUpperCase(Locale.ROOT) + super.toString().substring(1).toLowerCase(Locale.ROOT).replace("_", " ");
+    }
 }
