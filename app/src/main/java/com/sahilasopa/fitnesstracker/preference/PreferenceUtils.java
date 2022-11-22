@@ -75,7 +75,6 @@ public class PreferenceUtils {
         }
     }
 
-    @RequiresApi(VERSION_CODES.LOLLIPOP)
     @Nullable
     public static android.util.Size getCameraXTargetResolution(Context context) {
         String prefKey = context.getString(R.string.pref_key_camerax_target_resolution);

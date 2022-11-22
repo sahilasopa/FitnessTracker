@@ -60,7 +60,7 @@ public class SmoothAngles {
         }
         List<Float> smoothCoords = new ArrayList<Float>();
         CoordsArray.push(pose_coords);
-        if (this.smoothingMethod == "mean") {
+        if (this.smoothingMethod.equals("mean")) {
             smoothCoords = this.averageCoords();
         }
 

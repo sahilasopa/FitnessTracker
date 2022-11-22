@@ -46,10 +46,9 @@ public class PoseComparison {
      * INCOMPLETE FUNCTION. Function for getting the angles of defined poses.
      */
     private float[][] getReferenceeAngles() {
-        float[][] referenceAngles = {{90.0f, 90.0f, 175.0f, 175.0f, 108.0f,
-                131.0f, 118.0f, 180.0f, 120.0f, 175.0f}};
 
-        return referenceAngles;
+        return new float[][]{{90.0f, 90.0f, 175.0f, 175.0f, 108.0f,
+                131.0f, 118.0f, 180.0f, 120.0f, 175.0f}};
     }
 
 }

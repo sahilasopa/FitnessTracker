@@ -5,10 +5,10 @@ import androidx.annotation.NonNull;
 import java.util.Locale;
 
 public enum MUSCLE {
+    biceps,
     abdominals,
     abductors,
     adductors,
-    biceps,
     calves,
     chest,
     forearms,

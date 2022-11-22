@@ -214,7 +214,6 @@ public class BitmapUtils {
     /**
      * Checks if the UV plane buffers of a YUV_420_888 image are in the NV21 format.
      */
-    @RequiresApi(VERSION_CODES.KITKAT)
     private static boolean areUVPlanesNV21(Plane[] planes, int width, int height) {
         int imageSize = width * height;
 

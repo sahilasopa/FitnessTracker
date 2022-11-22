@@ -27,9 +27,9 @@ public class VolleyGetRequestUtil {
         queue.add(stringRequest);
     }
 
-    public void getExercise(Context context) {
+    public void getExercise(Context context, String params) {
         queue = Volley.newRequestQueue(context);
-        String URL = "https://api.api-ninjas.com/v1/exercises";
+        String URL = "https://api.api-ninjas.com/v1/exercises" + params;
         String API_KEY = "ST5l8tPFnc0oC/ga4MxfjQ==Whb393F90dPAHa6E";
         volleyListener = (VolleyListener) context;
 

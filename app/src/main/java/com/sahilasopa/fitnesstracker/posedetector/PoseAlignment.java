@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PoseAlignment {
-    Map<String, Boolean> pose_alignments = new HashMap<String, Boolean>();
+    Map<String, Boolean> pose_alignments;
 
     /**
      * Constructor for reading the defined pose alignments and storing them in a hashmap.
@@ -50,7 +50,7 @@ public class PoseAlignment {
         boolean current_pose_alignment, actual_pose_alignment;
         current_pose_alignment = classifyPoseAlignment(left_shoulder, right_shoulder);
         try {
-            actual_pose_alignment = this.pose_alignments.get(pose_name);
+            actual_pose_alignment = Boolean.TRUE.equals(this.pose_alignments.get(pose_name));
         } catch (NullPointerException e) {
             System.out.println("Alignment for " + pose_name + " is not defined");
             return true;
@@ -58,11 +58,4 @@ public class PoseAlignment {
 
         return current_pose_alignment == actual_pose_alignment;
     }
-
-//    public static void main(String args[]) {
-//        PoseAlignment alignment_checker = new PoseAlignment();
-//        System.out.println(alignment_checker.validatePoseAlignment(10.0, 12.0, "demo_pose_x"));
-//        System.out.println(alignment_checker.validatePoseAlignment(0.0, 0.2, "demo_pose"));
-//        System.out.println(alignment_checker.validatePoseAlignment(10.0, 8.0, "demo_pose"));
-//    }
 }
