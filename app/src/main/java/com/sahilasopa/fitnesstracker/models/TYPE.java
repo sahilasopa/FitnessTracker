@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import java.util.Locale;
 
 public enum TYPE {
+    exercise_type,
     cardio,
     olympic_weightlifting,
     plyometrics,

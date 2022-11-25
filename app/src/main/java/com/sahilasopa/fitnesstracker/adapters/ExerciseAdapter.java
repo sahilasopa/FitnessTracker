@@ -38,7 +38,7 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Exercise exercise = exercises.get(position);
         holder.name.setText(exercise.getName());
-        holder.calorieBurn.setText(context.getString(R.string.calorie_burn, exercise.getCalBurn()));
+        holder.calorieBurn.setText(context.getString(R.string.caloriesZ_burn, exercise.getCalBurn()));
         holder.imageView.setImageResource(exercise.getLogoResource());
     }
 

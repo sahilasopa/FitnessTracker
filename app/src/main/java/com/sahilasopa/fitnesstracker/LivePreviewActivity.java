@@ -19,7 +19,9 @@ package com.sahilasopa.fitnesstracker;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.media.MediaRecorder;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -37,6 +39,7 @@ import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.common.annotation.KeepName;
 import com.google.mlkit.vision.pose.PoseDetectorOptionsBase;
+import com.sahilasopa.fitnesstracker.databinding.ActivityVisionLivePreviewBinding;
 import com.sahilasopa.fitnesstracker.helpers.CameraSource;
 import com.sahilasopa.fitnesstracker.helpers.CameraSourcePreview;
 import com.sahilasopa.fitnesstracker.helpers.GraphicOverlay;
@@ -44,8 +47,10 @@ import com.sahilasopa.fitnesstracker.helpers.Util;
 import com.sahilasopa.fitnesstracker.posedetector.PoseDetectorProcessor;
 import com.sahilasopa.fitnesstracker.preference.PreferenceUtils;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -57,7 +62,6 @@ public final class LivePreviewActivity extends AppCompatActivity
         OnItemSelectedListener,
         CompoundButton.OnCheckedChangeListener {
     private static final String POSE_DETECTION = "Pose Detection";
-
     private static final String TAG = "LivePreviewActivity";
     private static final int PERMISSION_REQUESTS = 1;
 
@@ -65,6 +69,7 @@ public final class LivePreviewActivity extends AppCompatActivity
     private CameraSourcePreview preview;
     private GraphicOverlay graphicOverlay;
     private String selectedModel = POSE_DETECTION;
+    private ActivityVisionLivePreviewBinding binding;
 
     private static boolean isPermissionGranted(Context context, String permission) {
         if (ContextCompat.checkSelfPermission(context, permission)
@@ -79,8 +84,8 @@ public final class LivePreviewActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d(TAG, "onCreate");
-        setContentView(R.layout.activity_vision_live_preview);
+        binding = ActivityVisionLivePreviewBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         Util.values.clear();
         preview = findViewById(R.id.preview_view);
         if (preview == null) {
@@ -111,8 +116,6 @@ public final class LivePreviewActivity extends AppCompatActivity
 
     @Override
     public synchronized void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-        // An item was selected. You can retrieve the selected item using
-        // parent.getItemAtPosition(pos)
         selectedModel = parent.getItemAtPosition(pos).toString();
         Log.d(TAG, "Selected model: " + selectedModel);
         preview.stop();
@@ -133,11 +136,7 @@ public final class LivePreviewActivity extends AppCompatActivity
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         Log.d(TAG, "Set facing");
         if (cameraSource != null) {
-            if (isChecked) {
-                cameraSource.setFacing(CameraSource.CAMERA_FACING_FRONT);
-            } else {
-                cameraSource.setFacing(CameraSource.CAMERA_FACING_BACK);
-            }
+            cameraSource.setFacing(CameraSource.CAMERA_FACING_BACK);
         }
         preview.stop();
         startCameraSource();

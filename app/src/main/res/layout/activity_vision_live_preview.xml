@@ -33,6 +33,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+<!--    <ToggleButton-->
+<!--        android:id="@+id/capture"-->
+<!--        android:layout_width="48dp"-->
+<!--        android:layout_height="48dp"-->
+<!--        android:layout_gravity="center_vertical"-->
+<!--        android:background="@drawable/toggle_style"-->
+<!--        android:checked="false"-->
+<!--        android:textOff=""-->
+<!--        android:textOn=""-->
+<!--        app:layout_constraintEnd_toEndOf="@id/facing_switch"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/facing_switch" />-->
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
         android:layout_width="wrap_content"

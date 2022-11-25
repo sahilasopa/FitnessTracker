@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import java.util.Locale;
 
 public enum DIFFICULTY {
+    difficulty,
     beginner,
     intermediate,
     expert;

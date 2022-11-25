@@ -18,6 +18,8 @@ import com.sahilasopa.fitnesstracker.utils.VolleyListener;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import java.util.Locale;
+
 public class WorkoutInstructorActivity extends AppCompatActivity implements VolleyListener {
     ActivityWorkoutInstructorBinding binding;
     VolleyGetRequestUtil getRequestUtil;
@@ -40,15 +42,23 @@ public class WorkoutInstructorActivity extends AppCompatActivity implements Voll
             } else {
                 params = ("?name=" + binding.exerciseName.getText().toString());
             }
+            if (params.isEmpty()) {
+                Toast.makeText(this, "Please select at-least one option", Toast.LENGTH_SHORT).show();
+                return;
+            }
             getRequestUtil.getExercise(this, params);
         });
     }
 
     private void getDropdownOptions(Spinner difficulty, Spinner type, Spinner muscle) {
-        params += "?difficulty=" + (difficulty.getSelectedItem().toString());
-        params += "&type=" + (type.getSelectedItem().toString());
-        params += "&muscle=" + (muscle.getSelectedItem().toString());
+        if (!difficulty.getSelectedItem().toString().toLowerCase(Locale.ROOT).equals("difficulty"))
+            params += "?difficulty=" + (difficulty.getSelectedItem().toString());
+        if (!type.getSelectedItem().toString().toLowerCase(Locale.ROOT).equals("exercise type"))
+            params += "&type=" + (type.getSelectedItem().toString());
+        if (!muscle.getSelectedItem().toString().toLowerCase(Locale.ROOT).equals("muscle"))
+            params += "&muscle=" + (muscle.getSelectedItem().toString());
     }
+
 
     @Override
     public void requestSuccess(String response) {
@@ -58,7 +68,7 @@ public class WorkoutInstructorActivity extends AppCompatActivity implements Voll
             if (exercises.length() == 0) {
                 Toast.makeText(this, "No Such Exercise found", Toast.LENGTH_SHORT).show();
             } else {
-                startActivity(new Intent(this, InstructorActivity.class).putExtra("array", String.valueOf(exercises)));
+                startActivity(new Intent(this, InstructorActivity.class).putExtra("array", response));
             }
         } catch (JSONException e) {
             e.printStackTrace();

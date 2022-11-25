@@ -174,4 +174,9 @@
     <string name="we_are_always_there_nto_teach_you_new_exercises">We Are Always there\nTo Teach You New Exercises</string>
     <string name="exercise_name_optional">Exercise Name (Optional)</string>
     <string name="find_exercises">Find Exercises</string>
+    <string name="difficulty_easy">Difficulty: Easy</string>
+    <string name="equipments_none">Equipments: None</string>
+    <string name="more_info">More Info</string>
+    <string name="less_info">LESS INFO</string>
+    <string name="biceps_curl_to_shoulder_press">Biceps curl to shoulder press</string>
 </resources>
