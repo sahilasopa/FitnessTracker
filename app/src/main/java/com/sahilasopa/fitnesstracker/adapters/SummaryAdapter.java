@@ -27,7 +27,7 @@ public class SummaryAdapter extends RecyclerView.Adapter<SummaryAdapter.ViewHold
     @NonNull
     @Override
     public SummaryAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.instructor_row, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.row_instructor, parent, false);
         return new ViewHolder(view);
     }
 
