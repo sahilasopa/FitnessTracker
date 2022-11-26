@@ -92,7 +92,7 @@ public class OtpActivity extends AppCompatActivity {
         username = getIntent().getExtras().get("username").toString();
         binding.title.setText(getString(R.string.enter_the_otp).concat(contact));
         sendVerificationCode(contact);
-        binding.buttonSignIn.setOnClickListener(view -> {
+        binding.buttonVerify.setOnClickListener(view -> {
             if (binding.otp.getText().toString().isEmpty() || binding.otp.getText().toString().length() < 6) {
                 binding.otp.setError("Enter a valid otp");
                 binding.otp.requestFocus();

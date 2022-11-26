@@ -82,7 +82,7 @@ public class LoginActivity extends AppCompatActivity {
             });
         });
         binding.buttonMobileNo.setOnClickListener(view -> startActivity(contact));
-        binding.alreadyHaveAccountText.setOnClickListener(v -> startActivity(register));
+        binding.createAccount.setOnClickListener(v -> startActivity(register));
     }
 
     public void signIn() {

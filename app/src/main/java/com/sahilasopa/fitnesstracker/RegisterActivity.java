@@ -59,7 +59,7 @@ public class RegisterActivity extends AppCompatActivity {
                 .build();
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-        binding.buttonSignIn.setOnClickListener(v -> {
+        binding.buttonSignUp.setOnClickListener(v -> {
             EditText username = binding.username;
             EditText email = binding.email;
             EditText password = binding.password;

@@ -33,6 +33,7 @@
         android:orientation="vertical">
 
         <EditText
+            android:id="@+id/username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
@@ -49,6 +50,7 @@
             android:textSize="18sp" />
 
         <EditText
+            android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
@@ -65,6 +67,7 @@
             android:textSize="18sp" />
 
         <EditText
+            android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:autofillHints="@string/password"
@@ -81,13 +84,14 @@
 
 
         <Button
+            android:id="@+id/buttonSignUp"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="26dp"
             android:layout_marginBottom="6dp"
             android:background="@drawable/roundbuttons"
             android:padding="14dp"
-            android:text="@string/sign_in"
+            android:text="@string/sign_up"
             app:cornerRadius="6dp" />
 
         <TextView
@@ -104,6 +108,7 @@
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/buttonGoogle"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -121,6 +126,7 @@
                 tools:ignore="RtlHardcoded" />
 
             <Button
+                android:id="@+id/buttonMobileNo"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -140,6 +146,7 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/alreadyHaveAccountText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/already_have_account" />

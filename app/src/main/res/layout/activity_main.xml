@@ -43,6 +43,7 @@
                 app:layout_constraintTop_toBottomOf="@id/materialToolbar">
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/calorieTracker"
                     android:layout_width="0dp"
                     android:layout_height="140dp"
                     android:layout_marginStart="10dp"
@@ -91,6 +92,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/workouts"
                     android:layout_width="0dp"
                     android:layout_height="140dp"
                     android:layout_margin="10dp"
@@ -185,6 +187,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/workoutTeacher"
                     android:layout_width="0dp"
                     android:layout_height="140dp"
                     android:layout_margin="10dp"
