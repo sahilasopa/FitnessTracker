@@ -29,7 +29,6 @@
         app:layout_constraintTop_toBottomOf="@id/materialToolbar">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/totalCalorie"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
@@ -66,7 +65,6 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/totalFat"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
@@ -115,7 +113,6 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/totalCarbs"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
@@ -152,7 +149,6 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/totalProtein"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
@@ -212,7 +208,6 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/foodName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
@@ -233,7 +228,6 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/FindFood"
                     android:layout_width="125dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
@@ -245,7 +239,6 @@
                     app:cornerRadius="6dp" />
 
                 <Button
-                    android:id="@+id/save"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
@@ -260,7 +253,6 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/manually"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/manually_add"

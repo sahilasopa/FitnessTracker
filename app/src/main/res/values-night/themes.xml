@@ -10,11 +10,4 @@
         <item name="android:statusBarColor">@color/colorPrimary</item>
     </style>
 
-    <style name="Theme.FitnessTracker.Fullscreen" parent="Theme.FitnessTracker">
-        <item name="android:actionBarStyle">
-            @style/Widget.Theme.FitnessTracker.ActionBar.Fullscreen
-        </item>
-        <item name="android:windowActionBarOverlay">true</item>
-        <item name="android:windowBackground">@null</item>
-    </style>
 </resources>

@@ -34,7 +34,6 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/otp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:autofillHints="@string/username"
@@ -49,7 +48,6 @@
 
 
         <Button
-            android:id="@+id/buttonSignIn"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="26dp"
@@ -73,7 +71,6 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/buttonGoogle"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -91,7 +88,6 @@
                 tools:ignore="RtlHardcoded" />
 
             <Button
-                android:id="@+id/buttonEmail"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -111,13 +107,11 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/resend"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:text="@string/didn_t_receive_code_resend_otp" />
         <TextView
-            android:id="@+id/register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/new_create_an_account" />

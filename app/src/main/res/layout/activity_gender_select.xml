@@ -30,7 +30,6 @@
         app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Rounded" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/buttonFemale"
         style="@style/Widget.MaterialComponents.Button.Icon"
         android:layout_width="150dp"
         android:layout_height="150dp"

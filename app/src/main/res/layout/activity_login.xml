@@ -10,7 +10,6 @@
     tools:context=".LoginActivity">
 
     <TextView
-        android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
@@ -34,7 +33,6 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
@@ -51,7 +49,6 @@
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
@@ -69,7 +66,6 @@
 
 
         <Button
-            android:id="@+id/buttonSignIn"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="26dp"
@@ -93,7 +89,6 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/buttonGoogle"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -111,7 +106,6 @@
                 tools:ignore="RtlHardcoded" />
 
             <Button
-                android:id="@+id/buttonMobileNo"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -131,7 +125,6 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/alreadyHaveAccountText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/new_create_an_account" />
