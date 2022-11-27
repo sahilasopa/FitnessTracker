@@ -32,8 +32,8 @@ public class StatisticsActivity extends AppCompatActivity {
     Integer pushupsCount;
     Integer squatsCount;
     List<Workout> workoutArray;
-    private DatabaseReference pushups;
-    private DatabaseReference squats;
+    DatabaseReference pushups;
+    DatabaseReference squats;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +58,7 @@ public class StatisticsActivity extends AppCompatActivity {
                 if (pushupsCount == null) {
                     pushupsCount = 0;
                 }
-                binding.pushupsCount.setText(String.format(Locale.getDefault(),"%d Push-Ups", pushupsCount));
+                binding.pushupsCount.setText(String.format(Locale.getDefault(), "%d Push-Ups", pushupsCount));
             }
 
             @Override
@@ -73,7 +73,7 @@ public class StatisticsActivity extends AppCompatActivity {
                 if (squatsCount == null) {
                     squatsCount = 0;
                 }
-                binding.squatsCount.setText(String.format(Locale.getDefault(),"%d Squats", squatsCount));
+                binding.squatsCount.setText(String.format(Locale.getDefault(), "%d Squats", squatsCount));
             }
 
             @Override

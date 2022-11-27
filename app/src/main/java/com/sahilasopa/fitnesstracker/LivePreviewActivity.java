@@ -19,9 +19,7 @@ package com.sahilasopa.fitnesstracker;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.media.MediaRecorder;
 import android.os.Bundle;
-import android.os.Environment;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -47,10 +45,8 @@ import com.sahilasopa.fitnesstracker.helpers.Util;
 import com.sahilasopa.fitnesstracker.posedetector.PoseDetectorProcessor;
 import com.sahilasopa.fitnesstracker.preference.PreferenceUtils;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -69,7 +65,7 @@ public final class LivePreviewActivity extends AppCompatActivity
     private CameraSourcePreview preview;
     private GraphicOverlay graphicOverlay;
     private String selectedModel = POSE_DETECTION;
-    private ActivityVisionLivePreviewBinding binding;
+    ActivityVisionLivePreviewBinding binding;
 
     private static boolean isPermissionGranted(Context context, String permission) {
         if (ContextCompat.checkSelfPermission(context, permission)
