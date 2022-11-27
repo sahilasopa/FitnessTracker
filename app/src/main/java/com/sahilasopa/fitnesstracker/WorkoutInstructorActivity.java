@@ -51,7 +51,6 @@ public class WorkoutInstructorActivity extends AppCompatActivity implements Voll
     }
 
     private void getDropdownOptions(Spinner difficulty, Spinner type, Spinner muscle) {
-        if (!difficulty.getSelectedItem().toString().toLowerCase(Locale.ROOT).equals("difficulty"))
             params += "?difficulty=" + (difficulty.getSelectedItem().toString());
         if (!type.getSelectedItem().toString().toLowerCase(Locale.ROOT).equals("exercise type"))
             params += "&type=" + (type.getSelectedItem().toString());
