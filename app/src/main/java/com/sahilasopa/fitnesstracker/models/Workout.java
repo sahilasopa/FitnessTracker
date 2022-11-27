@@ -15,6 +15,9 @@ public class Workout {
         this.hoursSpent = hoursSpent;
     }
 
+    public Workout() {
+    }
+
     public Exercise getExercise() {
         return exercise;
     }
@@ -45,7 +48,7 @@ public class Workout {
         return caloriesBurned;
     }
 
-    public void setCaloriesBurned(long caloriesBurned) {
+    public void setCaloriesBurned(double caloriesBurned) {
         this.caloriesBurned = caloriesBurned;
     }
 
@@ -53,7 +56,7 @@ public class Workout {
         return hoursSpent;
     }
 
-    public void setHoursSpent(long hoursSpent) {
+    public void setHoursSpent(double hoursSpent) {
         this.hoursSpent = hoursSpent;
     }
 }

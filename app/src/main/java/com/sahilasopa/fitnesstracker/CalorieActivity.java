@@ -1,6 +1,7 @@
 package com.sahilasopa.fitnesstracker;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -32,6 +33,7 @@ public class CalorieActivity extends AppCompatActivity {
         binding = ActivityCalorieBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         binding.materialToolbar.setSubtitle("Calorie Tracker");
+        binding.materialToolbar.setSubtitleTextColor(Color.WHITE);
         database = FirebaseDatabase.getInstance();
         auth = FirebaseAuth.getInstance();
         addFood = new Intent(this, FoodAddActivity.class);

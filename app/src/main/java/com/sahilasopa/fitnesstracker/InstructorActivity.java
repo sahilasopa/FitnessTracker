@@ -33,8 +33,7 @@ public class InstructorActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         try {
             List<WorkoutInstructions> workoutInstructions = new ArrayList<>();
-            array = new JSONArray(getIntent().getExtras().get("array"));
-            System.out.println(array);
+            array = new JSONArray(getIntent().getExtras().get("array").toString());
             for (int i = 0; i < array.length(); i++) {
                 JSONObject object = array.getJSONObject(i);
                 WorkoutInstructions instructions = new WorkoutInstructions(object.getString("name"), object.getString("type"), object.getString("muscle"), object.getString("equipment"), object.getString("difficulty"), object.getString("instructions"));

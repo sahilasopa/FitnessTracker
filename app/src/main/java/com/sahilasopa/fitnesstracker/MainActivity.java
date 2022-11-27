@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         Intent workoutTracker = new Intent(this, ExerciseActivity.class);
         Intent workoutDetector = new Intent(this, LivePreviewActivity.class);
         Intent workoutInstructor = new Intent(this, WorkoutInstructorActivity.class);
+        Intent statistics = new Intent(this, StatisticsActivity.class);
         binding.materialToolbar.setSubtitle("Fitness Tracker");
         binding.materialToolbar.setSubtitleTextColor(Color.WHITE);
         binding.materialToolbar.inflateMenu(R.menu.main);
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         binding.workouts.setOnClickListener(view -> startActivity(workoutTracker));
         binding.mlWorkoutCard.setOnClickListener(view -> startActivity(workoutDetector));
         binding.workoutTeacher.setOnClickListener(view -> startActivity(workoutInstructor));
+        binding.statistics.setOnClickListener(view -> startActivity(statistics));
     }
 
 

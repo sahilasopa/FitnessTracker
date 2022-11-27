@@ -28,6 +28,7 @@ import android.util.Log;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresPermission;
@@ -376,7 +377,11 @@ public class CameraSource {
         if (requestedCameraId == -1) {
             throw new IOException("Could not find requested camera.");
         }
-        Camera camera = Camera.open(requestedCameraId);
+        try {
+            Camera camera = Camera.open(requestedCameraId);
+        } catch (Exception e) {
+            Toast.makeText(activity, "Please allow camera permission", Toast.LENGTH_SHORT).show();
+        }
 
         SizePair sizePair = PreferenceUtils.getCameraPreviewSizePair(activity, requestedCameraId);
         if (sizePair == null) {

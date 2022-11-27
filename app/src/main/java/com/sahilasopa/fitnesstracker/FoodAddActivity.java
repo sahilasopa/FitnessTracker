@@ -1,6 +1,7 @@
 package com.sahilasopa.fitnesstracker;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -33,6 +34,7 @@ public class FoodAddActivity extends AppCompatActivity implements VolleyListener
         getRequestUtil = new VolleyGetRequestUtil();
         database = FirebaseDatabase.getInstance();
         binding.materialToolbar.setSubtitle("Calorie Tracker");
+        binding.materialToolbar.setSubtitleTextColor(Color.WHITE);
         binding.FindFood.setOnClickListener(view -> {
             String foodName = binding.foodName.getText().toString();
             if (foodName.isEmpty()) {

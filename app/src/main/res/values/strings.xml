@@ -128,4 +128,6 @@
     <string name="_10_squats">10 Squats</string>
     <string name="other_workouts">Other Workouts</string>
     <string name="sign_up">Sign Up</string>
+    <string name="time_spent_0_01_hours">Time Spent: 0.01 hours</string>
+    <string name="calories_burned_100_kcal">Calories Burned: 100 KCAL</string>
 </resources>

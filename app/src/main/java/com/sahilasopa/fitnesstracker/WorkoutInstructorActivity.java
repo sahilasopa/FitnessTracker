@@ -62,7 +62,6 @@ public class WorkoutInstructorActivity extends AppCompatActivity implements Voll
 
     @Override
     public void requestSuccess(String response) {
-        System.out.println("Success Response: " + response);
         try {
             exercises = new JSONArray(response);
             if (exercises.length() == 0) {

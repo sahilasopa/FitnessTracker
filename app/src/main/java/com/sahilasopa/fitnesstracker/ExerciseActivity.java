@@ -1,5 +1,6 @@
 package com.sahilasopa.fitnesstracker;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,6 +25,8 @@ public class ExerciseActivity extends AppCompatActivity {
         binding = ActivityExerciseBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         recyclerView = binding.recycleView;
+        binding.materialToolbar2.setSubtitle("Workout Tracker");
+        binding.materialToolbar2.setSubtitleTextColor(Color.WHITE);
         adapter = new ExerciseAdapter(this, createExercises());
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);

@@ -24,6 +24,9 @@ public class Exercise implements Serializable {
         this.logoResource = logoResource;
     }
 
+    public Exercise() {
+    }
+
     public int getLogoResource() {
         return logoResource;
     }
