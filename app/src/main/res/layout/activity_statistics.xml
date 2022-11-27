@@ -70,7 +70,7 @@
                             android:layout_below="@id/pushup"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="10dp"
-                            android:text="@string/_10_pushups"
+                            android:text="@string/dash"
                             android:textColor="@color/text_color"
                             android:textSize="20sp" />
 
@@ -106,7 +106,7 @@
                             android:layout_below="@id/squats"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="10dp"
-                            android:text="@string/_10_squats"
+                            android:text="@string/dash"
                             android:textColor="@color/text_color"
                             android:textSize="20sp" />
 

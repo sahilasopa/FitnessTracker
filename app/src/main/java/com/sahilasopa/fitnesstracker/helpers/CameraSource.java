@@ -377,11 +377,8 @@ public class CameraSource {
         if (requestedCameraId == -1) {
             throw new IOException("Could not find requested camera.");
         }
-        try {
-            Camera camera = Camera.open(requestedCameraId);
-        } catch (Exception e) {
-            Toast.makeText(activity, "Please allow camera permission", Toast.LENGTH_SHORT).show();
-        }
+        Camera camera = Camera.open(requestedCameraId);
+
 
         SizePair sizePair = PreferenceUtils.getCameraPreviewSizePair(activity, requestedCameraId);
         if (sizePair == null) {

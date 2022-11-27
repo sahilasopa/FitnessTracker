@@ -35,9 +35,18 @@ public class InstructorActivity extends AppCompatActivity {
             List<WorkoutInstructions> workoutInstructions = new ArrayList<>();
             array = new JSONArray(getIntent().getExtras().get("array").toString());
             for (int i = 0; i < array.length(); i++) {
+                boolean contains = false;
                 JSONObject object = array.getJSONObject(i);
                 WorkoutInstructions instructions = new WorkoutInstructions(object.getString("name"), object.getString("type"), object.getString("muscle"), object.getString("equipment"), object.getString("difficulty"), object.getString("instructions"));
-                workoutInstructions.add(instructions);
+                for (WorkoutInstructions workoutInstruction : workoutInstructions) {
+                    if (workoutInstruction.getName().equals(instructions.getName())) {
+                        contains = true;
+                        break;
+                    }
+                }
+                if (!contains){
+                    workoutInstructions.add(instructions);
+                }
             }
             System.out.println(workoutInstructions);
             adapter = new InstructorAdapter(this, workoutInstructions);

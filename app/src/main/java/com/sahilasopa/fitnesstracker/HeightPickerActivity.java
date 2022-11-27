@@ -41,6 +41,7 @@ public class HeightPickerActivity extends AppCompatActivity {
             map.put("weight", weight);
             map.put("height", height);
             database.getReference("Users").child(auth.getCurrentUser().getUid()).updateChildren(map);
+            home.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(home);
             finish();
         });

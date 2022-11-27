@@ -16,6 +16,8 @@ import com.google.firebase.database.ValueEventListener;
 import com.sahilasopa.fitnesstracker.databinding.ActivityCalorieBinding;
 import com.sahilasopa.fitnesstracker.models.Food;
 
+import java.util.Locale;
+
 public class CalorieActivity extends AppCompatActivity {
     ActivityCalorieBinding binding;
     Intent addFood;
@@ -53,10 +55,10 @@ public class CalorieActivity extends AppCompatActivity {
                     totalFats += food.getFat();
                     totalCarbs += food.getCarbohydrate();
                     totalProtein += food.getProtein();
-                    binding.calorieCount.setText(String.valueOf(totalCal));
-                    binding.fatCount.setText(String.valueOf(totalFats));
-                    binding.carbsCount.setText(String.valueOf(totalCarbs));
-                    binding.proteinCount.setText(String.valueOf(totalProtein));
+                    binding.calorieCount.setText(String.format(Locale.getDefault(), "%s KCAL", totalCal));
+                    binding.fatCount.setText(String.format(Locale.getDefault(), "%s g", totalFats));
+                    binding.carbsCount.setText(String.format(Locale.getDefault(), "%s g", totalCarbs));
+                    binding.proteinCount.setText(String.format(Locale.getDefault(), "%s g", totalProtein));
                 }
             }
 
